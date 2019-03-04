@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SCCalculator.h"
 
 @interface ViewController : UIViewController
 
-@property (weak, nonatomic) IBOutlet UILabel *result;
+@property (strong, nonatomic) SCCalculator* SCCalculator_;
+@property (weak, nonatomic) IBOutlet UILabel* result;
 - (IBAction)acButton:(id)sender;
 - (IBAction)pmButton:(id)sender;
 - (IBAction)percentButton:(id)sender;
