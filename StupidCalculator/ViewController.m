@@ -23,10 +23,10 @@
 
 - (IBAction)acButton:(id)sender
 {
-  [_SCCalculator_.shownString setString:@"0"];
+  self.result.text = @"0";
+  [_SCCalculator_.shownString setString:@""];
   _SCCalculator_.intResult = 0;
   _SCCalculator_.doubleResult = 0.0f;
-  UPDATE_LABEL;
 }
 
 - (IBAction)pmButton:(id)sender
@@ -108,14 +108,14 @@
 
 - (IBAction)zeroButton:(id)sender
 {
-  [self.SCCalculator_ inputFromView:@"0"];
-  UPDATE_LABEL;
+  if([self.SCCalculator_ inputFromView:@"0"])
+    UPDATE_LABEL;
 }
 
 - (IBAction)twoZeroButton:(id)sender
 {
-  [self.SCCalculator_ inputFromView:@"00"];
-  UPDATE_LABEL;
+  if([self.SCCalculator_ inputFromView:@"00"])
+    UPDATE_LABEL;
 }
 
 - (IBAction)dotButton:(id)sender

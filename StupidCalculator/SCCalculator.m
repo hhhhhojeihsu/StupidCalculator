@@ -21,7 +21,7 @@
   return self;
 }
 
-- (void) inputFromView:(NSString *)input
+- (BOOL) inputFromView:(NSString *)input
 {
   if([input isEqualToString:@"-"])
   {
@@ -30,9 +30,11 @@
     else
       [self.shownString insertString:@"-" atIndex:0];
   }
+  else if(([input isEqualToString:@"0"] || [input isEqualToString:@"00"]) && [self.shownString isEqualToString:@""])
+    return FALSE;
   else
     [self.shownString appendFormat:@"%@", input];
-  return;
+  return TRUE;
 }
 
 @end
