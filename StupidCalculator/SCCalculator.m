@@ -21,9 +21,17 @@
   return self;
 }
 
-- (void) inputNumber:(NSString *)input
+- (void) inputFromView:(NSString *)input
 {
-  [self.shownString appendFormat:@"%@", input];
+  if([input isEqualToString:@"-"])
+  {
+    if([@"-" isEqualToString:[self.shownString substringWithRange:[self.shownString rangeOfComposedCharacterSequenceAtIndex:0]]])
+     [self.shownString deleteCharactersInRange:[self.shownString rangeOfComposedCharacterSequenceAtIndex:0]];
+    else
+      [self.shownString insertString:@"-" atIndex:0];
+  }
+  else
+    [self.shownString appendFormat:@"%@", input];
   return;
 }
 

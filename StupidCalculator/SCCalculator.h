@@ -15,8 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) int intResult;
 @property (nonatomic) double doubleResult;
 @property (nonatomic, strong) NSMutableString* shownString;
+
 - (SCCalculator*)init;
-- (void) inputNumber:(NSString *)input;
+- (void) inputFromView:(NSString *)input;
 
 
 @end

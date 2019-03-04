@@ -29,7 +29,10 @@
   UPDATE_LABEL;
 }
 
-- (IBAction)pmButton:(id)sender {
+- (IBAction)pmButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"-"];
+  UPDATE_LABEL;
 }
 
 - (IBAction)percentButton:(id)sender {
@@ -40,19 +43,19 @@
 
 - (IBAction)sevenButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"7"];
+  [self.SCCalculator_ inputFromView:@"7"];
   UPDATE_LABEL;
 }
 
 - (IBAction)eightButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"8"];
+  [self.SCCalculator_ inputFromView:@"8"];
   UPDATE_LABEL;
 }
 
 - (IBAction)nineButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"9"];
+  [self.SCCalculator_ inputFromView:@"9"];
   UPDATE_LABEL;
 }
 
@@ -61,19 +64,19 @@
 
 - (IBAction)fourButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"4"];
+  [self.SCCalculator_ inputFromView:@"4"];
   UPDATE_LABEL;
 }
 
 - (IBAction)fiveButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"5"];
+  [self.SCCalculator_ inputFromView:@"5"];
   UPDATE_LABEL;
 }
 
 - (IBAction)sixButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"6"];
+  [self.SCCalculator_ inputFromView:@"6"];
   UPDATE_LABEL;
 }
 
@@ -84,19 +87,19 @@
 
 - (IBAction)oneButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"1"];
+  [self.SCCalculator_ inputFromView:@"1"];
   UPDATE_LABEL;
 }
 
 - (IBAction)twoButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"2"];
+  [self.SCCalculator_ inputFromView:@"2"];
   UPDATE_LABEL;
 }
 
 - (IBAction)threeButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"3"];
+  [self.SCCalculator_ inputFromView:@"3"];
   UPDATE_LABEL;
 }
 
@@ -105,17 +108,20 @@
 
 - (IBAction)zeroButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"0"];
+  [self.SCCalculator_ inputFromView:@"0"];
   UPDATE_LABEL;
 }
 
 - (IBAction)twoZeroButton:(id)sender
 {
-  [self.SCCalculator_ inputNumber:@"00"];
+  [self.SCCalculator_ inputFromView:@"00"];
   UPDATE_LABEL;
 }
 
-- (IBAction)dotButton:(id)sender {
+- (IBAction)dotButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"."];
+  UPDATE_LABEL;
 }
 
 - (IBAction)equalButton:(id)sender {
