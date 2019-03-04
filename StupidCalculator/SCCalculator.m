@@ -15,6 +15,8 @@
   if(self = [super init])
   {
     self.shownString = [[NSMutableString alloc] init];
+    self.intResult = 0;
+    self.doubleResult = 0.0f;
   }
   return self;
 }

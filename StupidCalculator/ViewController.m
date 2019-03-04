@@ -21,7 +21,12 @@
   self.SCCalculator_ = [[SCCalculator alloc] init];
 }
 
-- (IBAction)acButton:(id)sender {
+- (IBAction)acButton:(id)sender
+{
+  [_SCCalculator_.shownString setString:@"0"];
+  _SCCalculator_.intResult = 0;
+  _SCCalculator_.doubleResult = 0.0f;
+  UPDATE_LABEL;
 }
 
 - (IBAction)pmButton:(id)sender {
