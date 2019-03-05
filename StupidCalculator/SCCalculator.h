@@ -34,6 +34,7 @@ typedef NS_ENUM(int, OPERATOR)
 - (SCCalculator*)init;
 - (BOOL) inputFromView:(NSString *)input;
 - (BOOL) inputOperator:(int)operatorType;
+- (void) setResultToShown;
 - (void) saveToResult;
 
 

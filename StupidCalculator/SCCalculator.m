@@ -56,8 +56,7 @@
     case MINUS:
     case PLUS:
       self.doubleResult = [self.SCOperator_ plus:self.doubleResult with:[self.shownString doubleValue]];
-      [self.shownString setString:@""];
-      [self.shownString appendFormat:@"%lg", self.doubleResult];
+      [self setResultToShown];
       retval = TRUE;
       break;
     case EQUAL:
@@ -68,6 +67,13 @@
   self.lastOperator = operatorType;
   return retval;
 }
+
+- (void) setResultToShown
+{
+  [self.shownString setString:@""];
+  [self.shownString appendFormat:@"%lg", self.doubleResult];
+}
+
 
 - (void) saveToResult
 {

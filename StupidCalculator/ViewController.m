@@ -24,8 +24,10 @@
 - (IBAction)acButton:(id)sender
 {
   self.result.text = @"0";
-  [_SCCalculator_.shownString setString:@""];
-  _SCCalculator_.doubleResult = 0.0f;
+  [self.SCCalculator_.shownString setString:@""];
+  self.SCCalculator_.doubleResult = 0.0f;
+  self.SCCalculator_.lastOperator = EMPTY;
+  
 }
 
 - (IBAction)pmButton:(id)sender
