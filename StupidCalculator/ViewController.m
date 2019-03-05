@@ -25,7 +25,6 @@
 {
   self.result.text = @"0";
   [_SCCalculator_.shownString setString:@""];
-  _SCCalculator_.intResult = 0;
   _SCCalculator_.doubleResult = 0.0f;
 }
 
@@ -103,7 +102,11 @@
   UPDATE_LABEL;
 }
 
-- (IBAction)plusButton:(id)sender {
+- (IBAction)plusButton:(id)sender
+{
+  if([self.SCCalculator_ inputOperator:PLUS])
+    UPDATE_LABEL;
+  [self.SCCalculator_.shownString setString:@""];
 }
 
 - (IBAction)zeroButton:(id)sender

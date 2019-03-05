@@ -7,17 +7,34 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SCOperator.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SCCalculator : NSObject
 
-@property (nonatomic) int intResult;
+typedef NS_ENUM(int, OPERATOR)
+{
+  EMPTY,
+  CLEAR,
+  PM,
+  PERCENT,
+  DIVIDE,
+  MULTI,
+  MINUS,
+  PLUS,
+  EQUAL
+};
+
 @property (nonatomic) double doubleResult;
 @property (nonatomic, strong) NSMutableString* shownString;
+@property (nonatomic) int lastOperator;
+@property (strong, nonatomic) SCOperator* SCOperator_;
 
 - (SCCalculator*)init;
 - (BOOL) inputFromView:(NSString *)input;
+- (BOOL) inputOperator:(int)operatorType;
+- (void) saveToResult;
 
 
 @end

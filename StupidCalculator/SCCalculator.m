@@ -15,8 +15,9 @@
   if(self = [super init])
   {
     self.shownString = [[NSMutableString alloc] init];
-    self.intResult = 0;
     self.doubleResult = 0.0f;
+    self.lastOperator = EMPTY;
+    self.SCOperator_ = [[SCOperator alloc] init];
   }
   return self;
 }
@@ -35,6 +36,43 @@
   else
     [self.shownString appendFormat:@"%@", input];
   return TRUE;
+}
+
+- (BOOL) inputOperator:(int)operatorType
+{
+  BOOL retval;
+  // Execute old operation
+  switch(self.lastOperator)
+  {
+    case EMPTY:
+      [self saveToResult];
+      retval = FALSE;
+      break;
+    case CLEAR:
+    case PM:
+    case PERCENT:
+    case DIVIDE:
+    case MULTI:
+    case MINUS:
+    case PLUS:
+      self.doubleResult = [self.SCOperator_ plus:self.doubleResult with:[self.shownString doubleValue]];
+      [self.shownString setString:@""];
+      [self.shownString appendFormat:@"%lg", self.doubleResult];
+      retval = TRUE;
+      break;
+    case EQUAL:
+    default:
+      break;
+  }
+  // Queue new operation
+  self.lastOperator = operatorType;
+  return retval;
+}
+
+- (void) saveToResult
+{
+  self.doubleResult = [self.shownString doubleValue];
+  return;
 }
 
 @end

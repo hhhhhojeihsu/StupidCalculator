@@ -13,6 +13,7 @@
 		DE435163222CC7E700B6F670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE435162222CC7E700B6F670 /* Assets.xcassets */; };
 		DE435166222CC7E700B6F670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE435164222CC7E700B6F670 /* LaunchScreen.storyboard */; };
 		DE435169222CC7E700B6F670 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE435168222CC7E700B6F670 /* main.m */; };
+		DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A513222E1BB400FD1FC0 /* SCOperator.m */; };
 		DEE15DEA222D54F90086B36D /* SCCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE15DE9222D54F90086B36D /* SCCalculator.m */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +28,8 @@
 		DE435165222CC7E700B6F670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE435167222CC7E700B6F670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE435168222CC7E700B6F670 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DEC2A512222E1BB400FD1FC0 /* SCOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOperator.h; sourceTree = "<group>"; };
+		DEC2A513222E1BB400FD1FC0 /* SCOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOperator.m; sourceTree = "<group>"; };
 		DEE15DE8222D54F90086B36D /* SCCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCCalculator.h; sourceTree = "<group>"; };
 		DEE15DE9222D54F90086B36D /* SCCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCalculator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,7 +64,7 @@
 		DE435158222CC7E500B6F670 /* StupidCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				DEE15DE7222D547D0086B36D /* Objects */,
+				DEE15DE7222D547D0086B36D /* Models */,
 				DE435159222CC7E500B6F670 /* AppDelegate.h */,
 				DE43515A222CC7E500B6F670 /* AppDelegate.m */,
 				DE43515C222CC7E500B6F670 /* ViewController.h */,
@@ -75,13 +78,15 @@
 			path = StupidCalculator;
 			sourceTree = "<group>";
 		};
-		DEE15DE7222D547D0086B36D /* Objects */ = {
+		DEE15DE7222D547D0086B36D /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DEE15DE8222D54F90086B36D /* SCCalculator.h */,
 				DEE15DE9222D54F90086B36D /* SCCalculator.m */,
+				DEC2A512222E1BB400FD1FC0 /* SCOperator.h */,
+				DEC2A513222E1BB400FD1FC0 /* SCOperator.m */,
 			);
-			name = Objects;
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,6 +163,7 @@
 				DEE15DEA222D54F90086B36D /* SCCalculator.m in Sources */,
 				DE435169222CC7E700B6F670 /* main.m in Sources */,
 				DE43515B222CC7E500B6F670 /* AppDelegate.m in Sources */,
+				DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
