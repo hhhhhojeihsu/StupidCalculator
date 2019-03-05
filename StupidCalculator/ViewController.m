@@ -83,7 +83,9 @@
 
 - (IBAction)minusButton:(id)sender
 {
-  
+  if([self.SCCalculator_ inputOperator:MINUS])
+    UPDATE_LABEL;
+  [self.SCCalculator_.shownString setString:@""];
 }
 
 - (IBAction)oneButton:(id)sender

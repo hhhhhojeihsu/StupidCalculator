@@ -40,7 +40,7 @@
 
 - (BOOL) inputOperator:(int)operatorType
 {
-  BOOL retval;
+  BOOL retval = TRUE;
   // Execute old operation
   switch(self.lastOperator)
   {
@@ -54,10 +54,12 @@
     case DIVIDE:
     case MULTI:
     case MINUS:
+      self.doubleResult = [self.SCOperator_ minus:self.doubleResult with:[self.shownString doubleValue]];
+      [self setResultToShown];
+      break;
     case PLUS:
       self.doubleResult = [self.SCOperator_ plus:self.doubleResult with:[self.shownString doubleValue]];
       [self setResultToShown];
-      retval = TRUE;
       break;
     case EQUAL:
     default:

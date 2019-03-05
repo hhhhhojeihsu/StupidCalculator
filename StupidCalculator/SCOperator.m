@@ -14,5 +14,9 @@
 {
   return arg1 + arg2;
 }
+- (double) minus:(double)arg1 with:(double)arg2
+{
+  return arg1 - arg2;
+}
 
 @end
