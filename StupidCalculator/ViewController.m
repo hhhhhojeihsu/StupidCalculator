@@ -32,8 +32,8 @@
 
 - (IBAction)pmButton:(id)sender
 {
-  [self.SCCalculator_ inputFromView:@"-"];
-  UPDATE_LABEL;
+  if([self.SCCalculator_ inputFromView:@"-"])
+    UPDATE_LABEL;
 }
 
 - (IBAction)percentButton:(id)sender {

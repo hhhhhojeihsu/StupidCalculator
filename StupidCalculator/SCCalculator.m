@@ -26,6 +26,8 @@
 {
   if([input isEqualToString:@"-"])
   {
+    if([self.shownString length] == 0)
+      return FALSE;
     if([@"-" isEqualToString:[self.shownString substringWithRange:[self.shownString rangeOfComposedCharacterSequenceAtIndex:0]]])
      [self.shownString deleteCharactersInRange:[self.shownString rangeOfComposedCharacterSequenceAtIndex:0]];
     else
