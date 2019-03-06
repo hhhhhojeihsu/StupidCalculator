@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+#import <AVKit/AVKit.h>
 #import "SCCalculator.h"
 
 @interface ViewController : UIViewController
@@ -33,9 +35,10 @@
 - (IBAction)twoZeroButton:(id)sender;
 - (IBAction)dotButton:(id)sender;
 - (IBAction)equalButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *acOutlet;
+@property (weak, nonatomic) IBOutlet UIButton* acOutlet;
 
--  (void) checkException;
-
+- (void) checkException;
+- (void) itemDidFinishPlaying:(NSNotification*) notification;
+- (void) checkLength;
 @end
 

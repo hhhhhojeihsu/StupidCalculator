@@ -14,6 +14,7 @@
 		DE435166222CC7E700B6F670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE435164222CC7E700B6F670 /* LaunchScreen.storyboard */; };
 		DE435169222CC7E700B6F670 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE435168222CC7E700B6F670 /* main.m */; };
 		DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A513222E1BB400FD1FC0 /* SCOperator.m */; };
+		DEC2A51B2230451800FD1FC0 /* Stahp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */; };
 		DEE15DEA222D54F90086B36D /* SCCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE15DE9222D54F90086B36D /* SCCalculator.m */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		DE435168222CC7E700B6F670 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DEC2A512222E1BB400FD1FC0 /* SCOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOperator.h; sourceTree = "<group>"; };
 		DEC2A513222E1BB400FD1FC0 /* SCOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOperator.m; sourceTree = "<group>"; };
+		DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stahp.mp4; sourceTree = "<group>"; };
 		DEE15DE8222D54F90086B36D /* SCCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCCalculator.h; sourceTree = "<group>"; };
 		DEE15DE9222D54F90086B36D /* SCCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCalculator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -64,6 +66,7 @@
 		DE435158222CC7E500B6F670 /* StupidCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				DEC2A5192230450E00FD1FC0 /* Resources */,
 				DEE15DE7222D547D0086B36D /* Models */,
 				DE435159222CC7E500B6F670 /* AppDelegate.h */,
 				DE43515A222CC7E500B6F670 /* AppDelegate.m */,
@@ -76,6 +79,14 @@
 				DE435168222CC7E700B6F670 /* main.m */,
 			);
 			path = StupidCalculator;
+			sourceTree = "<group>";
+		};
+		DEC2A5192230450E00FD1FC0 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		DEE15DE7222D547D0086B36D /* Models */ = {
@@ -146,6 +157,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DEC2A51B2230451800FD1FC0 /* Stahp.mp4 in Resources */,
 				DE435166222CC7E700B6F670 /* LaunchScreen.storyboard in Resources */,
 				DE435163222CC7E700B6F670 /* Assets.xcassets in Resources */,
 				DE435161222CC7E500B6F670 /* Main.storyboard in Resources */,
