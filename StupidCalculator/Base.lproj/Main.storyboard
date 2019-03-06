@@ -21,7 +21,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fUc-FN-pmo">
                                 <rect key="frame" x="20" y="109" width="374" height="128"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-oD-hLM">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="49" translatesAutoresizingMaskIntoConstraints="NO" id="zBD-oD-hLM">
                                         <rect key="frame" x="8" y="8" width="358" height="112"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="98"/>
                                         <nil key="highlightedColor"/>
