@@ -445,6 +445,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="acOutlet" destination="01w-k3-O9P" id="tBJ-Ia-p9j"/>
                         <outlet property="result" destination="zBD-oD-hLM" id="Jxm-33-nM3"/>
                     </connections>
                 </viewController>

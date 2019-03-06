@@ -24,16 +24,8 @@
 
 - (BOOL) inputFromView:(NSString *)input
 {
-  if([input isEqualToString:@"-"])
-  {
-    if([self.shownString length] == 0)
-      return FALSE;
-    if([@"-" isEqualToString:[self.shownString substringWithRange:[self.shownString rangeOfComposedCharacterSequenceAtIndex:0]]])
-     [self.shownString deleteCharactersInRange:[self.shownString rangeOfComposedCharacterSequenceAtIndex:0]];
-    else
-      [self.shownString insertString:@"-" atIndex:0];
-  }
-  else if(([input isEqualToString:@"0"] || [input isEqualToString:@"00"]) && [self.shownString isEqualToString:@""])
+  // Ignore 0 or 00 if shownString is empty
+  if(([input isEqualToString:@"0"] || [input isEqualToString:@"00"]) && [self.shownString isEqualToString:@""])
     return FALSE;
   else
     [self.shownString appendFormat:@"%@", input];
@@ -43,18 +35,47 @@
 - (BOOL) inputOperator:(int)operatorType
 {
   BOOL retval = TRUE;
-  // Execute old operation
+  // Execute new operation (requires one operand)
+  switch(operatorType)
+  {
+    case PERCENT:
+    {
+      double doubleTemp = [self.shownString doubleValue];
+      [self.shownString setString:@""];
+      [self.shownString appendFormat:@"%lg", [self.SCOperator_ divide:doubleTemp with:100.0f]];
+      return retval;
+    }
+    case PM:
+    {
+      if([self.shownString length] == 0)
+        return FALSE;
+      if([@"-" isEqualToString:[self.shownString substringWithRange:[self.shownString rangeOfComposedCharacterSequenceAtIndex:0]]])
+        [self.shownString deleteCharactersInRange:[self.shownString rangeOfComposedCharacterSequenceAtIndex:0]];
+      else
+        [self.shownString insertString:@"-" atIndex:0];
+      return retval;
+    }
+    case EQUAL:
+    default:
+      break;
+  }
+
+
+  // Execute old operation (requires two operand)
   switch(self.lastOperator)
   {
     case EMPTY:
       [self saveToResult];
       retval = FALSE;
       break;
-    case CLEAR:
-    case PM:
-    case PERCENT:
     case DIVIDE:
+      self.doubleResult = [self.SCOperator_ divide:self.doubleResult with:[self.shownString doubleValue]];
+      [self setResultToShown];
+      break;
     case MULTI:
+      self.doubleResult = [self.SCOperator_ multi:self.doubleResult with:[self.shownString doubleValue]];
+      [self setResultToShown];
+      break;
     case MINUS:
       self.doubleResult = [self.SCOperator_ minus:self.doubleResult with:[self.shownString doubleValue]];
       [self setResultToShown];
@@ -63,12 +84,14 @@
       self.doubleResult = [self.SCOperator_ plus:self.doubleResult with:[self.shownString doubleValue]];
       [self setResultToShown];
       break;
-    case EQUAL:
     default:
       break;
   }
   // Queue new operation
-  self.lastOperator = operatorType;
+  if(operatorType != EQUAL)
+    self.lastOperator = operatorType;
+  else
+    self.lastOperator = EMPTY;
   return retval;
 }
 

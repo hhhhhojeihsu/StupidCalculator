@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (double) plus:(double)arg1 with:(double)arg2;
 - (double) minus:(double)arg1 with:(double)arg2;
+- (double) multi:(double)arg1 with:(double)arg2;
+- (double) divide:(double)arg1 with:(double)arg2;
 
 @end
 

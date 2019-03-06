@@ -18,5 +18,13 @@
 {
   return arg1 - arg2;
 }
+- (double) multi:(double)arg1 with:(double)arg2
+{
+  return arg1 * arg2;
+}
+- (double) divide:(double)arg1 with:(double)arg2
+{
+  return arg1 / arg2;
+}
 
 @end

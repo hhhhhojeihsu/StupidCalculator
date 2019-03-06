@@ -33,6 +33,7 @@
 - (IBAction)twoZeroButton:(id)sender;
 - (IBAction)dotButton:(id)sender;
 - (IBAction)equalButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UIButton *acOutlet;
 
 
 @end
