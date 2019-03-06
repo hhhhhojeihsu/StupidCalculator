@@ -35,6 +35,7 @@
 - (IBAction)equalButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *acOutlet;
 
+-  (void) checkException;
 
 @end
 

@@ -15,11 +15,18 @@
   if(self = [super init])
   {
     self.shownString = [[NSMutableString alloc] init];
-    self.doubleResult = 0.0f;
-    self.lastOperator = EMPTY;
     self.SCOperator_ = [[SCOperator alloc] init];
+    [self reset];
   }
   return self;
+}
+
+- (void) reset
+{
+  self.doubleResult = 0.0f;
+  self.lastOperator = EMPTY;
+  [self.shownString setString:@""];
+  self.divideException = FALSE;
 }
 
 - (BOOL) inputFromView:(NSString *)input
@@ -34,7 +41,6 @@
 
 - (BOOL) inputOperator:(int)operatorType
 {
-  BOOL retval = TRUE;
   // Execute new operation (requires one operand)
   switch(operatorType)
   {
@@ -42,8 +48,8 @@
     {
       double doubleTemp = [self.shownString doubleValue];
       [self.shownString setString:@""];
-      [self.shownString appendFormat:@"%lg", [self.SCOperator_ divide:doubleTemp with:100.0f]];
-      return retval;
+      [self.shownString appendFormat:@"%lg", [[self.SCOperator_ divide:doubleTemp with:100.0f][1] doubleValue]];
+      return TRUE;
     }
     case PM:
     {
@@ -53,7 +59,7 @@
         [self.shownString deleteCharactersInRange:[self.shownString rangeOfComposedCharacterSequenceAtIndex:0]];
       else
         [self.shownString insertString:@"-" atIndex:0];
-      return retval;
+      return TRUE;
     }
     case EQUAL:
     default:
@@ -66,12 +72,21 @@
   {
     case EMPTY:
       [self saveToResult];
-      retval = FALSE;
-      break;
+      if(operatorType != EQUAL)
+        self.lastOperator = operatorType;
+      else
+        self.lastOperator = EMPTY;
+      return FALSE;
     case DIVIDE:
-      self.doubleResult = [self.SCOperator_ divide:self.doubleResult with:[self.shownString doubleValue]];
+    {
+      NSArray* result = [self.SCOperator_ divide:self.doubleResult with:[self.shownString doubleValue]];
+      if([result[0] intValue])
+        self.doubleResult = [result[1] doubleValue];
+      else
+        self.divideException = TRUE;
       [self setResultToShown];
       break;
+    }
     case MULTI:
       self.doubleResult = [self.SCOperator_ multi:self.doubleResult with:[self.shownString doubleValue]];
       [self setResultToShown];
@@ -92,7 +107,7 @@
     self.lastOperator = operatorType;
   else
     self.lastOperator = EMPTY;
-  return retval;
+  return TRUE;
 }
 
 - (void) setResultToShown

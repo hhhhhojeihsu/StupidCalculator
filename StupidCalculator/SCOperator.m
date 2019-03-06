@@ -22,11 +22,12 @@
 {
   return arg1 * arg2;
 }
-- (double) divide:(double)arg1 with:(double)arg2
+- (NSArray *) divide:(double)arg1 with:(double)arg2
 {
   if(arg2 == 0)
-    [NSException raise:@"divideBy0" format:@""];
-  return 0;
+    return @[@0];
+  else
+    return @[@1, @(arg1 / arg2)];
 }
 
 @end

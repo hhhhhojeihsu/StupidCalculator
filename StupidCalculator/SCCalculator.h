@@ -30,8 +30,10 @@ typedef NS_ENUM(int, OPERATOR)
 @property (nonatomic, strong) NSMutableString* shownString;
 @property (nonatomic) int lastOperator;
 @property (strong, nonatomic) SCOperator* SCOperator_;
+@property (nonatomic) BOOL divideException;
 
 - (SCCalculator*)init;
+- (void) reset;
 - (BOOL) inputFromView:(NSString *)input;
 - (BOOL) inputOperator:(int)operatorType;
 - (void) setResultToShown;

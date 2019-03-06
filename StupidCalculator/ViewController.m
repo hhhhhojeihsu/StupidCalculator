@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#define UPDATE_LABEL self.result.text = self.SCCalculator_.shownString
+#define UPDATE_LABEL_EXCEPTION self.result.text = self.SCCalculator_.shownString; [self checkException];
 #define SET_C [self.acOutlet setTitle:@"C" forState:UIControlStateNormal]
 
 @interface ViewController ()
@@ -33,32 +33,155 @@
   else
   {
     self.result.text = @"0";
-    [self.SCCalculator_.shownString setString:@""];
-    self.SCCalculator_.doubleResult = 0.0f;
-    self.SCCalculator_.lastOperator = EMPTY;
+    [self.SCCalculator_ reset];
   }
 }
 
 - (IBAction)pmButton:(id)sender
 {
   if([self.SCCalculator_ inputOperator:PM])
-    UPDATE_LABEL;
+    UPDATE_LABEL_EXCEPTION;
 }
 
 - (IBAction)percentButton:(id)sender
 {
   [self.SCCalculator_ inputOperator:PERCENT];
-  UPDATE_LABEL;
+  UPDATE_LABEL_EXCEPTION;
 }
 
 - (IBAction)divideButton:(id)sender
 {
-  @try
+  if([self.SCCalculator_ inputOperator:DIVIDE])
+    UPDATE_LABEL_EXCEPTION;
+  [self.SCCalculator_.shownString setString:@""];
+}
+
+- (IBAction)sevenButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"7"];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)eightButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"8"];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)nineButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"9"];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)multiButton:(id)sender
+{
+  if([self.SCCalculator_ inputOperator:MULTI])
+    UPDATE_LABEL_EXCEPTION;
+  [self.SCCalculator_.shownString setString:@""];
+}
+
+- (IBAction)fourButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"4"];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)fiveButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"5"];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)sixButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"6"];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)minusButton:(id)sender
+{
+  if([self.SCCalculator_ inputOperator:MINUS])
+    UPDATE_LABEL_EXCEPTION;
+  [self.SCCalculator_.shownString setString:@""];
+}
+
+- (IBAction)oneButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"1"];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)twoButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"2"];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)threeButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"3"];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)plusButton:(id)sender
+{
+  if([self.SCCalculator_ inputOperator:PLUS])
+    UPDATE_LABEL_EXCEPTION;
+  [self.SCCalculator_.shownString setString:@""];
+}
+
+- (IBAction)zeroButton:(id)sender
+{
+  if([self.SCCalculator_ inputFromView:@"0"])
   {
-    if([self.SCCalculator_ inputOperator:DIVIDE])
-      UPDATE_LABEL;
+    UPDATE_LABEL_EXCEPTION;
+    SET_C;
   }
-  @catch(NSException *exception)
+  else if(![self.result.text isEqualToString:@"0"])
+  {
+    self.result.text = @"0";
+  }
+}
+
+- (IBAction)twoZeroButton:(id)sender
+{
+  if([self.SCCalculator_ inputFromView:@"00"])
+  {
+    UPDATE_LABEL_EXCEPTION;
+    SET_C;
+  }
+  else if(![self.result.text isEqualToString:@"0"])
+  {
+    self.result.text = @"0";
+  }
+}
+
+- (IBAction)dotButton:(id)sender
+{
+  [self.SCCalculator_ inputFromView:@"."];
+  UPDATE_LABEL_EXCEPTION;
+  SET_C;
+}
+
+- (IBAction)equalButton:(id)sender
+{
+  if([self.SCCalculator_ inputOperator:EQUAL])
+    UPDATE_LABEL_EXCEPTION;
+}
+
+- (void) checkException
+{
+  if(self.SCCalculator_.divideException)
   {
     UIAlertController* alert =
     [UIAlertController alertControllerWithTitle:@"阿囉哈"
@@ -72,133 +195,9 @@
     [self presentViewController:alert
                        animated:TRUE
                      completion:nil];
-  }
-  @finally
-  {
-    [self.SCCalculator_.shownString setString:@""];
-  }
-}
-
-- (IBAction)sevenButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"7"];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)eightButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"8"];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)nineButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"9"];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)multiButton:(id)sender
-{
-  if([self.SCCalculator_ inputOperator:MULTI])
-    UPDATE_LABEL;
-  [self.SCCalculator_.shownString setString:@""];
-}
-
-- (IBAction)fourButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"4"];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)fiveButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"5"];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)sixButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"6"];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)minusButton:(id)sender
-{
-  if([self.SCCalculator_ inputOperator:MINUS])
-    UPDATE_LABEL;
-  [self.SCCalculator_.shownString setString:@""];
-}
-
-- (IBAction)oneButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"1"];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)twoButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"2"];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)threeButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"3"];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)plusButton:(id)sender
-{
-  if([self.SCCalculator_ inputOperator:PLUS])
-    UPDATE_LABEL;
-  [self.SCCalculator_.shownString setString:@""];
-}
-
-- (IBAction)zeroButton:(id)sender
-{
-  if([self.SCCalculator_ inputFromView:@"0"])
-  {
-    UPDATE_LABEL;
-    SET_C;
-  }
-  else if(![self.result.text isEqualToString:@"0"])
-  {
+    [self.SCCalculator_ reset];
     self.result.text = @"0";
   }
 }
 
-- (IBAction)twoZeroButton:(id)sender
-{
-  if([self.SCCalculator_ inputFromView:@"00"])
-  {
-    UPDATE_LABEL;
-    SET_C;
-  }
-  else if(![self.result.text isEqualToString:@"0"])
-  {
-    self.result.text = @"0";
-  }
-}
-
-- (IBAction)dotButton:(id)sender
-{
-  [self.SCCalculator_ inputFromView:@"."];
-  UPDATE_LABEL;
-  SET_C;
-}
-
-- (IBAction)equalButton:(id)sender
-{
-  if([self.SCCalculator_ inputOperator:EQUAL])
-    UPDATE_LABEL;
-}
 @end
