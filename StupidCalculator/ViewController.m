@@ -53,9 +53,30 @@
 
 - (IBAction)divideButton:(id)sender
 {
-  if([self.SCCalculator_ inputOperator:DIVIDE])
-    UPDATE_LABEL;
-  [self.SCCalculator_.shownString setString:@""];
+  @try
+  {
+    if([self.SCCalculator_ inputOperator:DIVIDE])
+      UPDATE_LABEL;
+  }
+  @catch(NSException *exception)
+  {
+    UIAlertController* alert =
+    [UIAlertController alertControllerWithTitle:@"阿囉哈"
+                                        message:@"國小生都知道不能除以 0 了，除非你是國小生"
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction* doneButton =
+    [UIAlertAction actionWithTitle:@"朕知道了"
+                             style:UIAlertActionStyleDefault
+                           handler:nil];
+    [alert addAction:doneButton];
+    [self presentViewController:alert
+                       animated:TRUE
+                     completion:nil];
+  }
+  @finally
+  {
+    [self.SCCalculator_.shownString setString:@""];
+  }
 }
 
 - (IBAction)sevenButton:(id)sender
@@ -149,6 +170,10 @@
     UPDATE_LABEL;
     SET_C;
   }
+  else if(![self.result.text isEqualToString:@"0"])
+  {
+    self.result.text = @"0";
+  }
 }
 
 - (IBAction)twoZeroButton:(id)sender
@@ -157,6 +182,10 @@
   {
     UPDATE_LABEL;
     SET_C;
+  }
+  else if(![self.result.text isEqualToString:@"0"])
+  {
+    self.result.text = @"0";
   }
 }
 
