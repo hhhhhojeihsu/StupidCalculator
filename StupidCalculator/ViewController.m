@@ -8,7 +8,10 @@
 
 #import "ViewController.h"
 #define UPDATE_LABEL self.result.text = self.SCCalculator_.shownString;
-#define CHECK_EXCEPTION [self checkException];
+#define CHECK_EXCEPTION_RESULT \
+        [self checkException];\
+        [self checkResult];
+
 #define SET_C_DETECT_LENGTH [self.acOutlet setTitle:@"C" forState:UIControlStateNormal]; [self checkLength];
 
 @interface ViewController ()
@@ -48,7 +51,7 @@
 {
   [self.SCCalculator_ inputOperator:PERCENT];
   UPDATE_LABEL;
-  CHECK_EXCEPTION;
+  CHECK_EXCEPTION_RESULT;
 }
 
 - (IBAction)divideButton:(id)sender
@@ -56,7 +59,7 @@
   if([self.SCCalculator_ inputOperator:DIVIDE])
   {
     UPDATE_LABEL;
-    CHECK_EXCEPTION;
+    CHECK_EXCEPTION_RESULT;
   }
   [self.SCCalculator_.shownString setString:@""];
 }
@@ -86,7 +89,7 @@
 {
   if([self.SCCalculator_ inputOperator:MULTI])
     UPDATE_LABEL;
-    CHECK_EXCEPTION;
+    CHECK_EXCEPTION_RESULT;
   [self.SCCalculator_.shownString setString:@""];
 }
 
@@ -115,7 +118,7 @@
 {
   if([self.SCCalculator_ inputOperator:MINUS])
     UPDATE_LABEL;
-    CHECK_EXCEPTION;
+    CHECK_EXCEPTION_RESULT;
   [self.SCCalculator_.shownString setString:@""];
 }
 
@@ -144,7 +147,7 @@
 {
   if([self.SCCalculator_ inputOperator:PLUS])
     UPDATE_LABEL;
-    CHECK_EXCEPTION;
+    CHECK_EXCEPTION_RESULT;
   [self.SCCalculator_.shownString setString:@""];
 }
 
@@ -186,7 +189,7 @@
   if([self.SCCalculator_ inputOperator:EQUAL])
   {
     UPDATE_LABEL;
-    CHECK_EXCEPTION;
+    CHECK_EXCEPTION_RESULT;
   }
 }
 
@@ -238,6 +241,51 @@
   
   [playerViewController.player play];
   [self presentViewController:playerViewController animated:YES completion:nil];
+}
+
+- (void) checkResult
+{
+  /*
+  if(self.SCCalculator_.lastOperator == EMPTY)
+    return;
+   */
+  switch([self.result.text intValue])
+  {
+  case 5566:
+  {
+    WKWebViewConfiguration* webConfiguration = [[WKWebViewConfiguration alloc] init];
+    WKWebView* webView = [[WKWebView alloc]
+                          initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height - 70)
+                          configuration:webConfiguration];
+    NSURL* webURL = [NSURL URLWithString:@"https://zh.wikipedia.org/zh-tw/5566"];
+    NSURLRequest* request = [NSURLRequest requestWithURL:webURL];
+    webView.tag = 5566;
+    [webView loadRequest:request];
+    [self.view addSubview:webView];
+    
+    UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    CGRect doneButtonFrame = CGRectMake(0, 25, 100, 44);
+    doneButton.frame = doneButtonFrame;
+    doneButton.tag = 5567;
+    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+    [doneButton addTarget:self
+                   action:@selector(doneButtonClicked)
+         forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:doneButton];
+  }
+  default:
+      break;
+  }
+  return;
+}
+
+- (void) doneButtonClicked
+{
+  [[self.view viewWithTag:5566] removeFromSuperview];
+  [[self.view viewWithTag:5567] removeFromSuperview];
+  [self.SCCalculator_ reset];
+  self.result.text = @"0";
+  return;
 }
 
 @end

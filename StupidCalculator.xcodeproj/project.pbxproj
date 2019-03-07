@@ -70,6 +70,7 @@
 				DEE15DE7222D547D0086B36D /* Models */,
 				DE435159222CC7E500B6F670 /* AppDelegate.h */,
 				DE43515A222CC7E500B6F670 /* AppDelegate.m */,
+				DEC2A513222E1BB400FD1FC0 /* SCOperator.m */,
 				DE43515C222CC7E500B6F670 /* ViewController.h */,
 				DE43515D222CC7E500B6F670 /* ViewController.m */,
 				DE43515F222CC7E500B6F670 /* Main.storyboard */,
@@ -95,7 +96,6 @@
 				DEE15DE8222D54F90086B36D /* SCCalculator.h */,
 				DEE15DE9222D54F90086B36D /* SCCalculator.m */,
 				DEC2A512222E1BB400FD1FC0 /* SCOperator.h */,
-				DEC2A513222E1BB400FD1FC0 /* SCOperator.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -318,6 +318,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9MP7MFF4R;
 				INFOPLIST_FILE = StupidCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -334,6 +335,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V9MP7MFF4R;
 				INFOPLIST_FILE = StupidCalculator/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

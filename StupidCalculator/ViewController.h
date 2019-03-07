@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
+#import <WebKit/WebKit.h>
 #import "SCCalculator.h"
 
 @interface ViewController : UIViewController
@@ -40,5 +41,7 @@
 - (void) checkException;
 - (void) itemDidFinishPlaying:(NSNotification*) notification;
 - (void) checkLength;
+- (void) checkResult;
+- (void) doneButtonClicked;
 @end
 
