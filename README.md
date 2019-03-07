@@ -9,13 +9,12 @@ A poorly written calculator written in Objective-C without too many functions an
 - Show a Easter egg video when you enter a number that is more than 12 digits
 
 ## TODO
-- [] Stahp
-- [] 5566
-- [] Landsacpe Mode
-- [] URL
-- [] FaceID
-- [] Soundeffect
-- [] Filesave
-- [] Camera
-- [] Order 66
+- [ ] 5566
+- [ ] Landsacpe Mode
+- [ ] URL
+- [ ] FaceID
+- [ ] Soundeffect
+- [ ] Filesave
+- [ ] Camera
+- [ ] Order 66
 
