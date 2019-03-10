@@ -11,7 +11,6 @@
 #define CHECK_EXCEPTION_RESULT \
         [self checkException];\
         [self checkResult];
-
 #define SET_C_DETECT_LENGTH [self.acOutlet setTitle:@"C" forState:UIControlStateNormal]; [self checkLength];
 
 @interface ViewController ()
@@ -24,6 +23,8 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
   self.SCCalculator_ = [[SCCalculator alloc] init];
+  self.context = [[LAContext alloc] init];
+  [self verifyIdentity];
 }
 
 - (IBAction)acButton:(id)sender
@@ -287,5 +288,40 @@
   self.result.text = @"0";
   return;
 }
+
+- (void) verifyIdentity
+{
+  if(![self checkAvailibilty])
+    return;
+  [self.context
+   evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
+   localizedReason:@"Authentication is required for access"
+   reply:^(BOOL success, NSError* error)
+   {
+     if(success)
+     {
+       NSLog(@"Verified");
+     }
+     else
+     {
+       dispatch_async(dispatch_get_main_queue(), ^{
+         [self performSegueWithIdentifier:@"identificationFailed" sender:nil];
+       });
+       NSLog(@"Failed");
+     }
+   }];
+  return;
+}
+
+- (BOOL) checkAvailibilty
+{
+  if(@available(iOS 11.0, *))
+  {
+    if([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:nil])
+      return self.context.biometryType == LABiometryTypeFaceID;
+  }
+  return FALSE;
+}
+
 
 @end

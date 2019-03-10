@@ -447,11 +447,51 @@
                     <connections>
                         <outlet property="acOutlet" destination="01w-k3-O9P" id="tBJ-Ia-p9j"/>
                         <outlet property="result" destination="zBD-oD-hLM" id="Jxm-33-nM3"/>
+                        <segue destination="Ybt-uC-LqN" kind="show" identifier="identificationFailed" id="lLk-5C-Fbt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="57.971014492753625" y="20.758928571428569"/>
+        </scene>
+        <!--Auth Failed View Controller-->
+        <scene sceneID="C4N-qR-lGU">
+            <objects>
+                <viewController id="Ybt-uC-LqN" customClass="AuthFailedViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ozX-Zy-FSI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authentication Failed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIr-6m-mVc">
+                                <rect key="frame" x="31" y="149" width="352" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmN-3E-aRQ">
+                                <rect key="frame" x="116" y="418" width="182" height="60"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <state key="normal" title="Retry"/>
+                                <connections>
+                                    <action selector="retryButton:" destination="Ybt-uC-LqN" eventType="touchUpInside" id="9Vh-jz-xRN"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <constraints>
+                            <constraint firstItem="vIr-6m-mVc" firstAttribute="top" secondItem="rj4-De-7wp" secondAttribute="top" constant="105" id="8BU-7h-gHY"/>
+                            <constraint firstItem="wmN-3E-aRQ" firstAttribute="centerY" secondItem="ozX-Zy-FSI" secondAttribute="centerY" id="AwY-a3-0g1"/>
+                            <constraint firstItem="vIr-6m-mVc" firstAttribute="centerX" secondItem="wmN-3E-aRQ" secondAttribute="centerX" id="Nb9-aa-qo1"/>
+                            <constraint firstItem="vIr-6m-mVc" firstAttribute="leading" secondItem="rj4-De-7wp" secondAttribute="leading" constant="31" id="PTD-63-mLl"/>
+                            <constraint firstItem="wmN-3E-aRQ" firstAttribute="leading" secondItem="rj4-De-7wp" secondAttribute="leading" constant="116" id="cI5-XL-EYh"/>
+                            <constraint firstItem="vIr-6m-mVc" firstAttribute="centerX" secondItem="ozX-Zy-FSI" secondAttribute="centerX" id="j7P-Ah-Wiy"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rj4-De-7wp"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qDH-J6-nhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="763.768115942029" y="15.401785714285714"/>
         </scene>
     </scenes>
 </document>

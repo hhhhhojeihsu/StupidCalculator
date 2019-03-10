@@ -11,6 +11,7 @@
 #import <AVKit/AVKit.h>
 #import <WebKit/WebKit.h>
 #import "SCCalculator.h"
+#import <LocalAuthentication/LAContext.h>
 
 @interface ViewController : UIViewController
 
@@ -43,5 +44,11 @@
 - (void) checkLength;
 - (void) checkResult;
 - (void) doneButtonClicked;
+
+@property (strong, nonatomic) LAContext* context;
+
+- (void) verifyIdentity;
+- (BOOL) checkAvailibilty;
+
 @end
 
