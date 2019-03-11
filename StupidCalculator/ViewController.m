@@ -25,11 +25,6 @@
   self.SCCalculator_ = [[SCCalculator alloc] init];
   self.context = [[LAContext alloc] init];
   [self verifyIdentity];
-  [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-  [[NSNotificationCenter defaultCenter] addObserver:self
-                                           selector:@selector(orientationChanged:)
-                                               name:UIDeviceOrientationDidChangeNotification
-                                             object:[UIDevice currentDevice]];
 }
 
 - (IBAction)acButton:(id)sender
@@ -322,6 +317,13 @@
    {
      if(success)
      {
+       dispatch_async(dispatch_get_main_queue(), ^{
+         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+         [[NSNotificationCenter defaultCenter] addObserver:self
+                                                  selector:@selector(orientationChanged:)
+                                                      name:UIDeviceOrientationDidChangeNotification
+                                                    object:[UIDevice currentDevice]];
+       });
        NSLog(@"Verified");
      }
      else
@@ -355,9 +357,11 @@
       break;
     case UIDeviceOrientationLandscapeLeft:
       NSLog(@"Orientation: Left");
+      [self performSegueWithIdentifier:@"orientationChangedDetected" sender:nil];
       break;
     case UIDeviceOrientationLandscapeRight:
       NSLog(@"Orientation: Right");
+      [self performSegueWithIdentifier:@"orientationChangedDetected" sender:nil];
       break;
     default:
       break;

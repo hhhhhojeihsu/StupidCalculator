@@ -16,6 +16,8 @@
 		DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A513222E1BB400FD1FC0 /* SCOperator.m */; };
 		DEC2A51B2230451800FD1FC0 /* Stahp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */; };
 		DEC2A5212234FB2500FD1FC0 /* AuthFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */; };
+		DEC2A5262236139900FD1FC0 /* VideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5252236139900FD1FC0 /* VideoController.m */; };
+		DEC2A5282236407300FD1FC0 /* Yee.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DEC2A5272236407300FD1FC0 /* Yee.mp4 */; };
 		DEE15DEA222D54F90086B36D /* SCCalculator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEE15DE9222D54F90086B36D /* SCCalculator.m */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,9 @@
 		DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stahp.mp4; sourceTree = "<group>"; };
 		DEC2A51F2234FB2500FD1FC0 /* AuthFailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthFailedViewController.h; sourceTree = "<group>"; };
 		DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthFailedViewController.m; sourceTree = "<group>"; };
+		DEC2A5242236139900FD1FC0 /* VideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoController.h; sourceTree = "<group>"; };
+		DEC2A5252236139900FD1FC0 /* VideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoController.m; sourceTree = "<group>"; };
+		DEC2A5272236407300FD1FC0 /* Yee.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yee.mp4; sourceTree = "<group>"; };
 		DEE15DE8222D54F90086B36D /* SCCalculator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCCalculator.h; sourceTree = "<group>"; };
 		DEE15DE9222D54F90086B36D /* SCCalculator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCCalculator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,19 +74,15 @@
 		DE435158222CC7E500B6F670 /* StupidCalculator */ = {
 			isa = PBXGroup;
 			children = (
+				DEC2A523223612F200FD1FC0 /* Storyboard */,
+				DEC2A522223612DA00FD1FC0 /* View */,
 				DEC2A5192230450E00FD1FC0 /* Resources */,
-				DEE15DE7222D547D0086B36D /* Models */,
+				DEE15DE7222D547D0086B36D /* Model */,
 				DE435159222CC7E500B6F670 /* AppDelegate.h */,
 				DE43515A222CC7E500B6F670 /* AppDelegate.m */,
-				DE43515C222CC7E500B6F670 /* ViewController.h */,
-				DE43515D222CC7E500B6F670 /* ViewController.m */,
-				DE43515F222CC7E500B6F670 /* Main.storyboard */,
 				DE435162222CC7E700B6F670 /* Assets.xcassets */,
-				DE435164222CC7E700B6F670 /* LaunchScreen.storyboard */,
 				DE435167222CC7E700B6F670 /* Info.plist */,
 				DE435168222CC7E700B6F670 /* main.m */,
-				DEC2A51F2234FB2500FD1FC0 /* AuthFailedViewController.h */,
-				DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */,
 			);
 			path = StupidCalculator;
 			sourceTree = "<group>";
@@ -89,12 +90,35 @@
 		DEC2A5192230450E00FD1FC0 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DEC2A5272236407300FD1FC0 /* Yee.mp4 */,
 				DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		DEE15DE7222D547D0086B36D /* Models */ = {
+		DEC2A522223612DA00FD1FC0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DE43515C222CC7E500B6F670 /* ViewController.h */,
+				DE43515D222CC7E500B6F670 /* ViewController.m */,
+				DEC2A51F2234FB2500FD1FC0 /* AuthFailedViewController.h */,
+				DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */,
+				DEC2A5242236139900FD1FC0 /* VideoController.h */,
+				DEC2A5252236139900FD1FC0 /* VideoController.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		DEC2A523223612F200FD1FC0 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				DE43515F222CC7E500B6F670 /* Main.storyboard */,
+				DE435164222CC7E700B6F670 /* LaunchScreen.storyboard */,
+			);
+			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		DEE15DE7222D547D0086B36D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				DEE15DE8222D54F90086B36D /* SCCalculator.h */,
@@ -102,7 +126,7 @@
 				DEC2A512222E1BB400FD1FC0 /* SCOperator.h */,
 				DEC2A513222E1BB400FD1FC0 /* SCOperator.m */,
 			);
-			name = Models;
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -163,6 +187,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEC2A51B2230451800FD1FC0 /* Stahp.mp4 in Resources */,
+				DEC2A5282236407300FD1FC0 /* Yee.mp4 in Resources */,
 				DE435166222CC7E700B6F670 /* LaunchScreen.storyboard in Resources */,
 				DE435163222CC7E700B6F670 /* Assets.xcassets in Resources */,
 				DE435161222CC7E500B6F670 /* Main.storyboard in Resources */,
@@ -181,6 +206,7 @@
 				DEC2A5212234FB2500FD1FC0 /* AuthFailedViewController.m in Sources */,
 				DE435169222CC7E700B6F670 /* main.m in Sources */,
 				DE43515B222CC7E500B6F670 /* AppDelegate.m in Sources */,
+				DEC2A5262236139900FD1FC0 /* VideoController.m in Sources */,
 				DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -448,6 +448,7 @@
                         <outlet property="acOutlet" destination="01w-k3-O9P" id="tBJ-Ia-p9j"/>
                         <outlet property="result" destination="zBD-oD-hLM" id="Jxm-33-nM3"/>
                         <segue destination="Ybt-uC-LqN" kind="show" identifier="identificationFailed" id="lLk-5C-Fbt"/>
+                        <segue destination="q3u-44-QxA" kind="show" identifier="orientationChangedDetected" id="7ui-uB-eyv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -492,6 +493,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qDH-J6-nhk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="763.768115942029" y="15.401785714285714"/>
+        </scene>
+        <!--Video Controller-->
+        <scene sceneID="LAD-WH-hJg">
+            <objects>
+                <viewController id="q3u-44-QxA" customClass="VideoController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YAi-Cp-jvr">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="x3C-GF-qpH"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xcl-hr-ILF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="58" y="719"/>
         </scene>
     </scenes>
 </document>
