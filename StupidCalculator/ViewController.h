@@ -50,5 +50,7 @@
 - (void) verifyIdentity;
 - (BOOL) checkAvailibilty;
 
+- (void) orientationChanged:(NSNotification *)note;
+
 @end
 

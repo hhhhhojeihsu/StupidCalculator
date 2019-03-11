@@ -25,6 +25,11 @@
   self.SCCalculator_ = [[SCCalculator alloc] init];
   self.context = [[LAContext alloc] init];
   [self verifyIdentity];
+  [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(orientationChanged:)
+                                               name:UIDeviceOrientationDidChangeNotification
+                                             object:[UIDevice currentDevice]];
 }
 
 - (IBAction)acButton:(id)sender
@@ -338,6 +343,25 @@
       return self.context.biometryType == LABiometryTypeFaceID;
   }
   return FALSE;
+}
+
+- (void) orientationChanged:(NSNotification *)note
+{
+  UIDevice * device = note.object;
+  switch(device.orientation)
+  {
+    case UIDeviceOrientationPortrait:
+      NSLog(@"Orientation: Portrait");
+      break;
+    case UIDeviceOrientationLandscapeLeft:
+      NSLog(@"Orientation: Left");
+      break;
+    case UIDeviceOrientationLandscapeRight:
+      NSLog(@"Orientation: Right");
+      break;
+    default:
+      break;
+  };
 }
 
 
