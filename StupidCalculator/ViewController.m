@@ -274,6 +274,21 @@
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:doneButton];
   }
+  case 66:
+  {
+    UIImageView *order66 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 307, 212)];
+    order66.center = self.view.center;
+    order66.image = [UIImage imageNamed:@"order66"];
+    order66.tag = 66;
+    [self.view addSubview:order66];
+    [UIImageView animateWithDuration:5 animations:^{
+      order66.alpha = 0.0f;
+    } completion:^(BOOL finished){
+      [[self.view viewWithTag:66] removeFromSuperview];
+      [self.SCCalculator_ reset];
+      self.result.text = @"0";
+    }];
+  }
   default:
       break;
   }
