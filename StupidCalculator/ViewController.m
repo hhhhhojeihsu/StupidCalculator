@@ -273,6 +273,7 @@
                    action:@selector(doneButtonClicked)
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:doneButton];
+    break;
   }
   case 66:
   {
@@ -288,6 +289,7 @@
       [self.SCCalculator_ reset];
       self.result.text = @"0";
     }];
+    break;
   }
   default:
       break;
