@@ -16,5 +16,4 @@ A poorly written calculator written in Objective-C without too many functions an
 - [ ] Soundeffect
 - [ ] Filesave
 - [ ] Camera
-- [ ] Loading Screen
 

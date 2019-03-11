@@ -292,7 +292,7 @@
     break;
   }
   default:
-      break;
+    break;
   }
   return;
 }
