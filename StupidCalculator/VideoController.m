@@ -31,6 +31,7 @@
   switch(deviceOrientation)
   {
     case UIDeviceOrientationLandscapeRight:
+      [self playYTVideo:@"ooIudVs8IWg"];
       break;
     case UIDeviceOrientationLandscapeLeft:
       [self playLocalVideo:@"Yee" dot:@"mp4"];
@@ -52,10 +53,11 @@
       [self dismissViewControllerAnimated:YES completion:nil];
       [self dismissViewControllerAnimated:YES completion:nil];
       break;
+    case UIDeviceOrientationLandscapeRight:
+      [self playYTVideo:@"ooIudVs8IWg"];
+      break;
     case UIDeviceOrientationLandscapeLeft:
       [self playLocalVideo:@"Yee" dot:@"mp4"];
-      break;
-    case UIDeviceOrientationLandscapeRight:
       break;
     default:
       break;
@@ -84,6 +86,13 @@
   AVPlayerItem *p = [notification object];
   [p seekToTime:kCMTimeZero completionHandler:nil];
   return;
+}
+
+- (void) playYTVideo:(NSString *)vidID
+{
+  YTPlayerView* ytView = [[YTPlayerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+  [ytView loadWithVideoId:vidID];
+  [self.view addSubview:ytView];
 }
 
 /*

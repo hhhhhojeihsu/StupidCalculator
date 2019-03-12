@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 #import <AVKit/AVKit.h>
+#import "YTPlayerView.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -16,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void) orientationChanged:(NSNotification *)note;
 - (void) playLocalVideo:(NSString *)name dot:(NSString *)ext;
+- (void) playYTVideo:(NSString *)vidID;
 
 @end
 
