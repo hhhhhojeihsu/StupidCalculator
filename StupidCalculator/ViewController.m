@@ -291,6 +291,11 @@
     }];
     break;
   }
+  case 8612:
+  {
+    [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
+    break;
+  }
   default:
     break;
   }
