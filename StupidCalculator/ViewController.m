@@ -296,6 +296,11 @@
     [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
     break;
   }
+  case 100:
+  {
+    [self performSegueWithIdentifier:@"gijoeTableSegue" sender:nil];
+    break;
+  }
   default:
     break;
   }

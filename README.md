@@ -15,7 +15,8 @@ A poorly written calculator written in Objective-C without too many functions an
 - Use Biometric as login authentication
 - Show an Easter Egg picture when the calculation result is 66
 - Show Easter Eggs when the device in landscape left or right
-- [ ] Show an Easter Egg function when the calculation result is 8612
+- Show an Easter Egg function when the calculation result is 8612
+- Show an Easter Egg function when the calculation result is 100
 
 ## TODO
 - [ ] Soundeffect

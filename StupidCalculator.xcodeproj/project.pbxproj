@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE028F1C223A3D3D00644175 /* GIJOETableController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE028F1B223A3D3D00644175 /* GIJOETableController.m */; };
 		DE43515B222CC7E500B6F670 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE43515A222CC7E500B6F670 /* AppDelegate.m */; };
 		DE43515E222CC7E500B6F670 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE43515D222CC7E500B6F670 /* ViewController.m */; };
 		DE435161222CC7E500B6F670 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE43515F222CC7E500B6F670 /* Main.storyboard */; };
@@ -25,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE028F1A223A3D3D00644175 /* GIJOETableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIJOETableController.h; sourceTree = "<group>"; };
+		DE028F1B223A3D3D00644175 /* GIJOETableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIJOETableController.m; sourceTree = "<group>"; };
 		DE435156222CC7E500B6F670 /* StupidCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StupidCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE435159222CC7E500B6F670 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DE43515A222CC7E500B6F670 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -108,6 +111,8 @@
 		DEC2A522223612DA00FD1FC0 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DE028F1A223A3D3D00644175 /* GIJOETableController.h */,
+				DE028F1B223A3D3D00644175 /* GIJOETableController.m */,
 				DE43515C222CC7E500B6F670 /* ViewController.h */,
 				DE43515D222CC7E500B6F670 /* ViewController.m */,
 				DEC2A51F2234FB2500FD1FC0 /* AuthFailedViewController.h */,
@@ -224,6 +229,7 @@
 				DEC2A5262236139900FD1FC0 /* VideoController.m in Sources */,
 				DEC2A52F2236D64F00FD1FC0 /* YTPlayerView.m in Sources */,
 				DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */,
+				DE028F1C223A3D3D00644175 /* GIJOETableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
