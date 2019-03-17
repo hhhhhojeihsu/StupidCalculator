@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		DE028F1C223A3D3D00644175 /* GIJOETableController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE028F1B223A3D3D00644175 /* GIJOETableController.m */; };
+		DE028F20223D358500644175 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE028F1F223D358500644175 /* TableCell.xib */; };
+		DE028F23223D3BC600644175 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE028F22223D3BC600644175 /* TableCell.m */; };
 		DE43515B222CC7E500B6F670 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE43515A222CC7E500B6F670 /* AppDelegate.m */; };
 		DE43515E222CC7E500B6F670 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE43515D222CC7E500B6F670 /* ViewController.m */; };
 		DE435161222CC7E500B6F670 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE43515F222CC7E500B6F670 /* Main.storyboard */; };
@@ -28,6 +30,9 @@
 /* Begin PBXFileReference section */
 		DE028F1A223A3D3D00644175 /* GIJOETableController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIJOETableController.h; sourceTree = "<group>"; };
 		DE028F1B223A3D3D00644175 /* GIJOETableController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIJOETableController.m; sourceTree = "<group>"; };
+		DE028F1F223D358500644175 /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
+		DE028F21223D3BC600644175 /* TableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
+		DE028F22223D3BC600644175 /* TableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
 		DE435156222CC7E500B6F670 /* StupidCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StupidCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE435159222CC7E500B6F670 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DE43515A222CC7E500B6F670 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -123,6 +128,8 @@
 				DEC2A52E2236D64F00FD1FC0 /* YTPlayerView.m */,
 				DEC2A53622378DA800FD1FC0 /* CameraController.h */,
 				DEC2A53722378DA800FD1FC0 /* CameraController.m */,
+				DE028F21223D3BC600644175 /* TableCell.h */,
+				DE028F22223D3BC600644175 /* TableCell.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -132,6 +139,7 @@
 			children = (
 				DE43515F222CC7E500B6F670 /* Main.storyboard */,
 				DE435164222CC7E700B6F670 /* LaunchScreen.storyboard */,
+				DE028F1F223D358500644175 /* TableCell.xib */,
 			);
 			name = Storyboard;
 			sourceTree = "<group>";
@@ -209,6 +217,7 @@
 				DEC2A535223786AC00FD1FC0 /* Assets.bundle in Resources */,
 				DE435166222CC7E700B6F670 /* LaunchScreen.storyboard in Resources */,
 				DE435163222CC7E700B6F670 /* Assets.xcassets in Resources */,
+				DE028F20223D358500644175 /* TableCell.xib in Resources */,
 				DE435161222CC7E500B6F670 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,6 +232,7 @@
 				DE43515E222CC7E500B6F670 /* ViewController.m in Sources */,
 				DEC2A53822378DA800FD1FC0 /* CameraController.m in Sources */,
 				DEE15DEA222D54F90086B36D /* SCCalculator.m in Sources */,
+				DE028F23223D3BC600644175 /* TableCell.m in Sources */,
 				DEC2A5212234FB2500FD1FC0 /* AuthFailedViewController.m in Sources */,
 				DE435169222CC7E700B6F670 /* main.m in Sources */,
 				DE43515B222CC7E500B6F670 /* AppDelegate.m in Sources */,
