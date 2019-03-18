@@ -532,7 +532,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="hdS-0f-ClT" id="uMd-aV-C6R"/>
-                        <segue destination="njk-TF-o53" kind="show" identifier="gijoeCellSegue" id="EqV-dD-tWM"/>
+                        <segue destination="71Y-r5-40Y" kind="show" identifier="gijoeCellSegue" id="EqV-dD-tWM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AII-d8-EWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -580,6 +580,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="ATV-by-cvZ"/>
                     </view>
+                    <tabBarItem key="tabBarItem" badgeValue="誰一敗" systemItem="favorites" id="sDV-Kq-zwG"/>
                     <connections>
                         <outlet property="gijoeImage" destination="1pZ-eo-pKC" id="YFo-hM-Mfp"/>
                         <outlet property="gijoeName" destination="zpp-gq-Qnv" id="jVJ-0S-WJC"/>
@@ -588,7 +589,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wGV-Mk-9eB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-668.11594202898561" y="2085.9375"/>
+            <point key="canvasLocation" x="242.0289855072464" y="2085.9375"/>
+        </scene>
+        <!--Video Controller-->
+        <scene sceneID="o5a-PW-rUh">
+            <objects>
+                <viewController id="AHo-1z-ZDR" customClass="GIJOEVideoController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="HRa-Br-ffJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vzm-TC-76q">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="Zgt-XB-cdQ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" badgeValue="卡卡雅哭" systemItem="more" id="PiF-Gj-zcD"/>
+                    <connections>
+                        <outlet property="gijoeWebVideo" destination="vzm-TC-76q" id="jPi-72-4Jl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fDh-Wl-1eV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="240.57971014492756" y="2816.5178571428569"/>
         </scene>
         <!--Video Controller-->
         <scene sceneID="LAD-WH-hJg">
@@ -661,6 +692,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzj-2h-59C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-668.11594202898561" y="719.86607142857144"/>
+        </scene>
+        <!--GIJOE 條文-->
+        <scene sceneID="U7R-Ra-59a">
+            <objects>
+                <tabBarController title="GIJOE 條文" automaticallyAdjustsScrollViewInsets="NO" id="71Y-r5-40Y" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NQj-ug-90j">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="njk-TF-o53" kind="relationship" relationship="viewControllers" id="g8p-XJ-CFe"/>
+                        <segue destination="AHo-1z-ZDR" kind="relationship" relationship="viewControllers" id="zO9-js-uFY"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Khy-Gb-Gcw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-668.11594202898561" y="2085.9375"/>
         </scene>
     </scenes>
 </document>

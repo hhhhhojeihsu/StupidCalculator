@@ -18,6 +18,7 @@
 		DE435169222CC7E700B6F670 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE435168222CC7E700B6F670 /* main.m */; };
 		DE879892223F37F0009CF7AF /* GIJOE.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE879891223F37F0009CF7AF /* GIJOE.plist */; };
 		DE879895223F4074009CF7AF /* GIJOEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE879894223F4074009CF7AF /* GIJOEViewController.m */; };
+		DE879898223F6EC4009CF7AF /* GIJOEVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE879897223F6EC4009CF7AF /* GIJOEVideoController.m */; };
 		DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A513222E1BB400FD1FC0 /* SCOperator.m */; };
 		DEC2A51B2230451800FD1FC0 /* Stahp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */; };
 		DEC2A5212234FB2500FD1FC0 /* AuthFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */; };
@@ -48,6 +49,8 @@
 		DE879891223F37F0009CF7AF /* GIJOE.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GIJOE.plist; sourceTree = "<group>"; };
 		DE879893223F4074009CF7AF /* GIJOEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIJOEViewController.h; sourceTree = "<group>"; };
 		DE879894223F4074009CF7AF /* GIJOEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIJOEViewController.m; sourceTree = "<group>"; };
+		DE879896223F6EC4009CF7AF /* GIJOEVideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIJOEVideoController.h; sourceTree = "<group>"; };
+		DE879897223F6EC4009CF7AF /* GIJOEVideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIJOEVideoController.m; sourceTree = "<group>"; };
 		DEC2A512222E1BB400FD1FC0 /* SCOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOperator.h; sourceTree = "<group>"; };
 		DEC2A513222E1BB400FD1FC0 /* SCOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOperator.m; sourceTree = "<group>"; };
 		DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stahp.mp4; sourceTree = "<group>"; };
@@ -134,6 +137,8 @@
 				DEC2A53722378DA800FD1FC0 /* CameraController.m */,
 				DE879893223F4074009CF7AF /* GIJOEViewController.h */,
 				DE879894223F4074009CF7AF /* GIJOEViewController.m */,
+				DE879896223F6EC4009CF7AF /* GIJOEVideoController.h */,
+				DE879897223F6EC4009CF7AF /* GIJOEVideoController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 				DEC2A5262236139900FD1FC0 /* VideoController.m in Sources */,
 				DEC2A52F2236D64F00FD1FC0 /* YTPlayerView.m in Sources */,
 				DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */,
+				DE879898223F6EC4009CF7AF /* GIJOEVideoController.m in Sources */,
 				DE028F1C223A3D3D00644175 /* GIJOETableController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -378,5 +378,11 @@
   };
 }
 
+// Override. Set the calcuation screen's status bar to white
+- (UIStatusBarStyle) preferredStatusBarStyle
+{
+  return UIStatusBarStyleLightContent;
+}
+
 
 @end

@@ -84,7 +84,9 @@
   if([segue.identifier isEqualToString:@"gijoeCellSegue"])
   {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    GIJOEViewController* destViewController = segue.destinationViewController;
+    // Destination is UITabBarController. Need to access its view controllers
+    UITabBarController* destTabBarController = segue.destinationViewController;
+    GIJOEViewController* destViewController = destTabBarController.viewControllers[0];
     destViewController.name = [self.nameTable objectAtIndex:indexPath.row];
     destViewController.timestamp = [self.timeTable objectAtIndex:indexPath.row];
   }
