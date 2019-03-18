@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (strong, nonatomic) NSMutableArray* nameTable;
 @property (strong, nonatomic) NSMutableArray* timeTable;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+- (IBAction)backButton:(id)sender;
 
 @end
 
