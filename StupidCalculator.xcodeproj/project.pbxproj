@@ -94,7 +94,7 @@
 			children = (
 				DEC2A534223786AC00FD1FC0 /* Assets.bundle */,
 				DEC2A523223612F200FD1FC0 /* Storyboard */,
-				DEC2A522223612DA00FD1FC0 /* View */,
+				DEC2A522223612DA00FD1FC0 /* Controller */,
 				DEC2A5192230450E00FD1FC0 /* Resources */,
 				DEE15DE7222D547D0086B36D /* Model */,
 				DE435159222CC7E500B6F670 /* AppDelegate.h */,
@@ -116,7 +116,7 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
-		DEC2A522223612DA00FD1FC0 /* View */ = {
+		DEC2A522223612DA00FD1FC0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				DE028F1A223A3D3D00644175 /* GIJOETableController.h */,
@@ -130,7 +130,7 @@
 				DEC2A53622378DA800FD1FC0 /* CameraController.h */,
 				DEC2A53722378DA800FD1FC0 /* CameraController.m */,
 			);
-			name = View;
+			name = Controller;
 			sourceTree = "<group>";
 		};
 		DEC2A523223612F200FD1FC0 /* Storyboard */ = {

@@ -12,8 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GIJOETableController : UIViewController <UITableViewDelegate, UITableViewDataSource>
 
-@property (strong, nonatomic) NSArray* nameTable;
-@property (strong, nonatomic) NSArray* timeTable;
+@property (strong, nonatomic) NSMutableArray* nameTable;
+@property (strong, nonatomic) NSMutableArray* timeTable;
 
 @end
 

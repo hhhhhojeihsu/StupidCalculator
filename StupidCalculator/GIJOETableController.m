@@ -22,8 +22,8 @@
   NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"GIJOE" ofType:@"plist"];
   
   NSDictionary* dict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-  self.nameTable = [dict objectForKey:@"Name"];
-  self.timeTable = [dict objectForKey:@"Timestamp"];
+  self.nameTable = [NSMutableArray arrayWithArray:[dict objectForKey:@"Name"]];
+  self.timeTable = [NSMutableArray arrayWithArray:[dict objectForKey:@"Timestamp"]];
 }
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
@@ -88,6 +88,13 @@
   });
   
   return;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  [self.nameTable removeObjectAtIndex:indexPath.row];
+  [self.timeTable removeObjectAtIndex:indexPath.row];
+  [tableView reloadData];
 }
 
 /*
