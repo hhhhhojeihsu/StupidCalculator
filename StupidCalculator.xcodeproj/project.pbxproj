@@ -17,6 +17,7 @@
 		DE435166222CC7E700B6F670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE435164222CC7E700B6F670 /* LaunchScreen.storyboard */; };
 		DE435169222CC7E700B6F670 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE435168222CC7E700B6F670 /* main.m */; };
 		DE879892223F37F0009CF7AF /* GIJOE.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE879891223F37F0009CF7AF /* GIJOE.plist */; };
+		DE879895223F4074009CF7AF /* GIJOEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE879894223F4074009CF7AF /* GIJOEViewController.m */; };
 		DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A513222E1BB400FD1FC0 /* SCOperator.m */; };
 		DEC2A51B2230451800FD1FC0 /* Stahp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */; };
 		DEC2A5212234FB2500FD1FC0 /* AuthFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */; };
@@ -45,6 +46,8 @@
 		DE435167222CC7E700B6F670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE435168222CC7E700B6F670 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DE879891223F37F0009CF7AF /* GIJOE.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GIJOE.plist; sourceTree = "<group>"; };
+		DE879893223F4074009CF7AF /* GIJOEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIJOEViewController.h; sourceTree = "<group>"; };
+		DE879894223F4074009CF7AF /* GIJOEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIJOEViewController.m; sourceTree = "<group>"; };
 		DEC2A512222E1BB400FD1FC0 /* SCOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOperator.h; sourceTree = "<group>"; };
 		DEC2A513222E1BB400FD1FC0 /* SCOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOperator.m; sourceTree = "<group>"; };
 		DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stahp.mp4; sourceTree = "<group>"; };
@@ -129,6 +132,8 @@
 				DEC2A5252236139900FD1FC0 /* VideoController.m */,
 				DEC2A53622378DA800FD1FC0 /* CameraController.h */,
 				DEC2A53722378DA800FD1FC0 /* CameraController.m */,
+				DE879893223F4074009CF7AF /* GIJOEViewController.h */,
+				DE879894223F4074009CF7AF /* GIJOEViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -234,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DE43515E222CC7E500B6F670 /* ViewController.m in Sources */,
+				DE879895223F4074009CF7AF /* GIJOEViewController.m in Sources */,
 				DEC2A53822378DA800FD1FC0 /* CameraController.m in Sources */,
 				DEE15DEA222D54F90086B36D /* SCCalculator.m in Sources */,
 				DE028F23223D3BC600644175 /* TableCell.m in Sources */,

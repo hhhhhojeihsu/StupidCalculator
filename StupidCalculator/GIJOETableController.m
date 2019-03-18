@@ -8,6 +8,7 @@
 
 #import "GIJOETableController.h"
 #import "TableCell.h"
+#import "GIJOEViewController.h"
 
 @interface GIJOETableController ()
 
@@ -24,6 +25,11 @@
   NSDictionary* dict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
   self.nameTable = [NSMutableArray arrayWithArray:[dict objectForKey:@"Name"]];
   self.timeTable = [NSMutableArray arrayWithArray:[dict objectForKey:@"Timestamp"]];
+}
+
+- (IBAction)backButton:(id)sender
+{
+  [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
@@ -56,36 +62,11 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+  [self performSegueWithIdentifier:@"gijoeCellSegue" sender:nil];
+
   TableCell* cell = [tableView cellForRowAtIndexPath:indexPath];
   cell.accessoryType = UITableViewCellAccessoryCheckmark;
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
-  
-  self.view.userInteractionEnabled = FALSE;
-  
-  UIImageView *pic = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 256, 256)];
-  pic.center = self.view.center;
-  pic.image = [UIImage imageNamed:[self.nameTable objectAtIndex:indexPath.row]];
-  pic.tag = 100;
-  [pic setContentMode:UIViewContentModeScaleAspectFit];
-  [self.view addSubview:pic];
-  
-  dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-    [[self.view viewWithTag:100] removeFromSuperview];
-    
-    UIAlertController* alert =
-    [UIAlertController alertControllerWithTitle:@"GIJOE 語錄"
-                                        message: cell.cellName.text
-                                 preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction* doneButton =
-    [UIAlertAction actionWithTitle:@"Done"
-                             style:UIAlertActionStyleDefault
-                           handler:nil];
-    [alert addAction:doneButton];
-    [self presentViewController:alert
-                       animated:TRUE
-                     completion:nil];
-    self.view.userInteractionEnabled = TRUE;
-  });
   
   return;
 }
@@ -97,14 +78,17 @@
   [tableView reloadData];
 }
 
-/*
 #pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+  if([segue.identifier isEqualToString:@"gijoeCellSegue"])
+  {
+    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    GIJOEViewController* destViewController = segue.destinationViewController;
+    destViewController.name = [self.nameTable objectAtIndex:indexPath.row];
+    destViewController.timestamp = [self.timeTable objectAtIndex:indexPath.row];
+  }
+  return;
 }
-*/
 
 @end

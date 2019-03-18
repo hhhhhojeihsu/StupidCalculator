@@ -450,7 +450,7 @@
                         <segue destination="Ybt-uC-LqN" kind="show" identifier="identificationFailed" id="lLk-5C-Fbt"/>
                         <segue destination="q3u-44-QxA" kind="show" identifier="orientationChangedDetected" id="7ui-uB-eyv"/>
                         <segue destination="Ru3-LB-I0d" kind="show" identifier="cameraSegue" id="zdA-1B-jLv"/>
-                        <segue destination="oIq-rJ-GoV" kind="show" identifier="gijoeTableSegue" id="6vo-S9-wgF"/>
+                        <segue destination="MnB-fe-tUI" kind="show" identifier="gijoeTableSegue" id="6vo-S9-wgF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -496,7 +496,7 @@
             </objects>
             <point key="canvasLocation" x="763.768115942029" y="15.401785714285714"/>
         </scene>
-        <!--Table Controller-->
+        <!--GIJOE 大典-->
         <scene sceneID="tUm-KD-J4L">
             <objects>
                 <viewController id="oIq-rJ-GoV" customClass="GIJOETableController" sceneMemberID="viewController">
@@ -505,7 +505,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hdS-0f-ClT">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <sections/>
                                 <connections>
@@ -523,10 +523,72 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eXs-ex-m1d"/>
                     </view>
+                    <navigationItem key="navigationItem" title="GIJOE 大典" id="QK7-wJ-qA6">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="7o5-Ay-Fdh">
+                            <connections>
+                                <action selector="backButton:" destination="oIq-rJ-GoV" id="dVH-h0-iaq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="hdS-0f-ClT" id="uMd-aV-C6R"/>
+                        <segue destination="njk-TF-o53" kind="show" identifier="gijoeCellSegue" id="EqV-dD-tWM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AII-d8-EWN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-668.11594202898561" y="719.86607142857144"/>
+            <point key="canvasLocation" x="-668" y="1396"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="VzA-3O-cEh">
+            <objects>
+                <viewController id="njk-TF-o53" customClass="GIJOEViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dmB-VK-Jo0">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="1pZ-eo-pKC">
+                                <rect key="frame" x="0.0" y="88" width="414" height="414"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1pZ-eo-pKC" secondAttribute="height" multiplier="1:1" id="Af3-UC-se6"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qL8-Pk-B0b">
+                                <rect key="frame" x="22" y="638" width="374" height="32.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zpp-gq-Qnv">
+                                <rect key="frame" x="20" y="521" width="374" height="48"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1pZ-eo-pKC" firstAttribute="leading" secondItem="ATV-by-cvZ" secondAttribute="leading" id="2iB-qx-Shx"/>
+                            <constraint firstItem="ATV-by-cvZ" firstAttribute="trailing" secondItem="zpp-gq-Qnv" secondAttribute="trailing" constant="20" id="5iZ-EE-efH"/>
+                            <constraint firstItem="ATV-by-cvZ" firstAttribute="trailing" secondItem="qL8-Pk-B0b" secondAttribute="trailing" constant="18" id="6I3-Le-YJ8"/>
+                            <constraint firstItem="zpp-gq-Qnv" firstAttribute="leading" secondItem="ATV-by-cvZ" secondAttribute="leading" constant="20" id="Jfc-jn-X4D"/>
+                            <constraint firstItem="qL8-Pk-B0b" firstAttribute="top" secondItem="zpp-gq-Qnv" secondAttribute="bottom" constant="69" id="LRa-i2-p4K"/>
+                            <constraint firstItem="zpp-gq-Qnv" firstAttribute="top" secondItem="1pZ-eo-pKC" secondAttribute="bottom" constant="19" id="Luh-vI-lhz"/>
+                            <constraint firstItem="1pZ-eo-pKC" firstAttribute="top" secondItem="ATV-by-cvZ" secondAttribute="top" id="bMB-fN-DMO"/>
+                            <constraint firstItem="1pZ-eo-pKC" firstAttribute="trailing" secondItem="ATV-by-cvZ" secondAttribute="trailing" id="d7S-hR-OGu"/>
+                            <constraint firstItem="qL8-Pk-B0b" firstAttribute="leading" secondItem="ATV-by-cvZ" secondAttribute="leading" constant="22" id="nQx-rJ-cVn"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ATV-by-cvZ"/>
+                    </view>
+                    <connections>
+                        <outlet property="gijoeImage" destination="1pZ-eo-pKC" id="YFo-hM-Mfp"/>
+                        <outlet property="gijoeName" destination="zpp-gq-Qnv" id="jVJ-0S-WJC"/>
+                        <outlet property="gijoeTimestamp" destination="qL8-Pk-B0b" id="BAs-tB-Omk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wGV-Mk-9eB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-668.11594202898561" y="2085.9375"/>
         </scene>
         <!--Video Controller-->
         <scene sceneID="LAD-WH-hJg">
@@ -541,7 +603,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xcl-hr-ILF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="58" y="719"/>
+            <point key="canvasLocation" x="58" y="720"/>
         </scene>
         <!--Camera Controller-->
         <scene sceneID="kSb-2s-jRM">
@@ -580,7 +642,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lE7-Vs-2sb" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="D6r-qP-uwh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="763.768115942029" y="718.52678571428567"/>
+            <point key="canvasLocation" x="764" y="720"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Rh9-0V-tfz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="MnB-fe-tUI" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4DD-9G-mX6">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oIq-rJ-GoV" kind="relationship" relationship="rootViewController" id="0VS-Dp-lpX"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qzj-2h-59C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-668.11594202898561" y="719.86607142857144"/>
         </scene>
     </scenes>
 </document>
