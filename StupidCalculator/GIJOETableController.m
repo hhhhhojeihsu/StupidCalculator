@@ -19,8 +19,11 @@
 {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
-  self.nameTable = [NSArray arrayWithObjects:@"00 ㄟ", @"01 死小孩", @"02 蛤", @"03 你是在蛤三小", @"04 臭奶呆", @"05 X", @"06 阿囉哈", @"07 得修", @"08 超爽得", @"09 撿到一百塊", @"10 黑人給我閉嘴", @"11 歐巴馬", @"12 歐巴馬是誰", @"13 我才不告訴你哩", @"14 ㄟㄟ", nil];
-  self.timeTable = [NSArray arrayWithObjects:@"2:03", @"2:05", @"2:06", @"2:07", @"2:08", @"2:09", @"2:13", @"2:16", @"2:21", @"2:22", @"2:27", @"2:28", @"2:30", @"2:32", @"2:35", nil];
+  NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"GIJOE" ofType:@"plist"];
+  
+  NSDictionary* dict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
+  self.nameTable = [dict objectForKey:@"Name"];
+  self.timeTable = [dict objectForKey:@"Timestamp"];
 }
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section

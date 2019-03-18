@@ -16,6 +16,7 @@
 		DE435163222CC7E700B6F670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE435162222CC7E700B6F670 /* Assets.xcassets */; };
 		DE435166222CC7E700B6F670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE435164222CC7E700B6F670 /* LaunchScreen.storyboard */; };
 		DE435169222CC7E700B6F670 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE435168222CC7E700B6F670 /* main.m */; };
+		DE879892223F37F0009CF7AF /* GIJOE.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE879891223F37F0009CF7AF /* GIJOE.plist */; };
 		DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A513222E1BB400FD1FC0 /* SCOperator.m */; };
 		DEC2A51B2230451800FD1FC0 /* Stahp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */; };
 		DEC2A5212234FB2500FD1FC0 /* AuthFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */; };
@@ -43,6 +44,7 @@
 		DE435165222CC7E700B6F670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE435167222CC7E700B6F670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE435168222CC7E700B6F670 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DE879891223F37F0009CF7AF /* GIJOE.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GIJOE.plist; sourceTree = "<group>"; };
 		DEC2A512222E1BB400FD1FC0 /* SCOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOperator.h; sourceTree = "<group>"; };
 		DEC2A513222E1BB400FD1FC0 /* SCOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOperator.m; sourceTree = "<group>"; };
 		DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stahp.mp4; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 			children = (
 				DEC2A5272236407300FD1FC0 /* Yee.mp4 */,
 				DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */,
+				DE879891223F37F0009CF7AF /* GIJOE.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -215,6 +218,7 @@
 				DEC2A51B2230451800FD1FC0 /* Stahp.mp4 in Resources */,
 				DEC2A5282236407300FD1FC0 /* Yee.mp4 in Resources */,
 				DEC2A535223786AC00FD1FC0 /* Assets.bundle in Resources */,
+				DE879892223F37F0009CF7AF /* GIJOE.plist in Resources */,
 				DE435166222CC7E700B6F670 /* LaunchScreen.storyboard in Resources */,
 				DE435163222CC7E700B6F670 /* Assets.xcassets in Resources */,
 				DE028F20223D358500644175 /* TableCell.xib in Resources */,
