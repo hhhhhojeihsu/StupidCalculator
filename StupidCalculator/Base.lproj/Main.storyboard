@@ -531,7 +531,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="tableView" destination="hdS-0f-ClT" id="uMd-aV-C6R"/>
+                        <outlet property="tableView" destination="hdS-0f-ClT" id="riB-kZ-HrL"/>
                         <segue destination="71Y-r5-40Y" kind="show" identifier="gijoeCellSegue" id="EqV-dD-tWM"/>
                     </connections>
                 </viewController>
@@ -699,6 +699,7 @@
                 <tabBarController title="GIJOE 條文" automaticallyAdjustsScrollViewInsets="NO" id="71Y-r5-40Y" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NQj-ug-90j">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

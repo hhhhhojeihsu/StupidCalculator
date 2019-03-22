@@ -33,7 +33,4 @@
 }
 */
 
-- (IBAction)gijoeLink:(id)sender
-{
-}
 @end
