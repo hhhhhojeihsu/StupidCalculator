@@ -18,10 +18,13 @@
 #pragma mark - Macro
 
 #define UPDATE_LABEL self.result.text = self.SCCalculator_.shownString;
+
 #define CHECK_EXCEPTION_RESULT \
 [self checkException];\
 [self checkResult];
-#define SET_C_DETECT_LENGTH [self.acOutlet setTitle:@"C" forState:UIControlStateNormal]; [self checkLength];
+
+#define SET_C_DETECT_LENGTH [self.acOutlet setTitle:@"C" forState:UIControlStateNormal];\
+[self checkLength];
 
 
 #pragma mark - View
@@ -220,7 +223,7 @@
   {
     UIAlertController* alert =
     [UIAlertController alertControllerWithTitle:@"阿囉哈"
-                                        message:@"國小生都知道不能除以 0 了，除非你是國小生"
+                                        message:@"國小生都知道不能除以 0 了，除非你是國小生" //!OCLINT Chinese
                                  preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction* doneButton =
     [UIAlertAction actionWithTitle:@"朕知道了"
@@ -238,11 +241,13 @@
 
 #pragma mark - Stahp Video
 
-- (void) itemDidFinishPlaying:(NSNotification*) notification
+- (void) itemDidFinishPlaying:(NSNotification*) notification //!OCLINT
 {
   // When video is done playing, dismiss video controller and remove observer
   [self dismissViewControllerAnimated:YES completion:nil];
-  [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+  [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                  name:AVPlayerItemDidPlayToEndTimeNotification
+                                                object:nil];
 }
 
 
@@ -264,7 +269,10 @@
   playerViewController.player = player;
   
   // Regist observer
-  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(itemDidFinishPlaying:)
+                                               name:AVPlayerItemDidPlayToEndTimeNotification
+                                             object:nil];
   
   // Play video
   [playerViewController.player play];
@@ -279,66 +287,17 @@
   switch([self.result.text intValue])
   {
   case 5566:
-  {
-    // Create and represent webview
-    WKWebViewConfiguration* webConfiguration = [[WKWebViewConfiguration alloc] init];
-    WKWebView* webView = [[WKWebView alloc]
-                          initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height - 70)
-                          configuration:webConfiguration];
-    NSURL* webURL = [NSURL URLWithString:@"https://zh.wikipedia.org/zh-tw/5566"];
-    NSURLRequest* request = [NSURLRequest requestWithURL:webURL];
-    webView.tag = 5566;
-    [webView loadRequest:request];
-    [self.view addSubview:webView];
-    
-    // Create done button
-    UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    CGRect doneButtonFrame = CGRectMake(0, 25, 100, 44);
-    doneButton.frame = doneButtonFrame;
-    doneButton.tag = 5567;
-    [doneButton setTitle:@"Done" forState:UIControlStateNormal];
-    [doneButton addTarget:self
-                   action:@selector(doneButtonClicked)
-         forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:doneButton];
-    
+    [self easterEgg5566];
     break;
-  }
   case 66:
-  {
-    // Create image
-    UIImageView *order66 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 307, 212)];
-    order66.center = self.view.center;
-    order66.image = [UIImage imageNamed:@"order66"];
-    order66.tag = 66;
-    [self.view addSubview:order66];
-    
-    // Set dim animation
-    [UIImageView animateWithDuration:5 animations:
-    ^{
-      order66.alpha = 0.0f;
-    }
-    completion:^(BOOL finished)
-    {
-      [[self.view viewWithTag:66] removeFromSuperview];
-      [self.SCCalculator_ reset];
-      self.result.text = @"0";
-    }];
-    
+    [self easterEgg66];
     break;
-  }
   case 8612:
-  {
-    // Enter camera view
-    [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
+    [self easterEgg8612];
     break;
-  }
   case 100:
-  {
-    // Enter GIJOE table view
-    [self performSegueWithIdentifier:@"gijoeTableSegue" sender:nil];
+    [self easterEgg100];
     break;
-  }
   default:
     break;
   }
@@ -346,7 +305,36 @@
 }
 
 
-#pragma mark - Web Easter Egg
+#pragma mark - Easter Egg 5566
+
+- (void) easterEgg5566
+{
+  // Create and represent webview
+  WKWebViewConfiguration* webConfiguration = [[WKWebViewConfiguration alloc] init];
+  WKWebView* webView = [[WKWebView alloc]
+                        initWithFrame:CGRectMake(0,
+                                                 70,
+                                                 self.view.frame.size.width,
+                                                 self.view.frame.size.height - 70)
+                        configuration:webConfiguration];
+  NSURL* webURL = [NSURL URLWithString:@"https://zh.wikipedia.org/zh-tw/5566"];
+  NSURLRequest* request = [NSURLRequest requestWithURL:webURL];
+  webView.tag = 5566;
+  [webView loadRequest:request];
+  [self.view addSubview:webView];
+  
+  // Create done button
+  UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+  CGRect doneButtonFrame = CGRectMake(0, 25, 100, 44);
+  doneButton.frame = doneButtonFrame;
+  doneButton.tag = 5567;
+  [doneButton setTitle:@"Done" forState:UIControlStateNormal];
+  [doneButton addTarget:self
+                 action:@selector(doneButtonClicked)
+       forControlEvents:UIControlEventTouchUpInside];
+  [self.view addSubview:doneButton];
+}
+
 
 - (void) doneButtonClicked
 {
@@ -358,6 +346,47 @@
   return;
 }
 
+
+#pragma mark - Easter Egg 66
+
+- (void) easterEgg66
+{
+  // Create image
+  UIImageView *order66 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 307, 212)];
+  order66.center = self.view.center;
+  order66.image = [UIImage imageNamed:@"order66"];
+  order66.tag = 66;
+  [self.view addSubview:order66];
+  
+  // Set dim animation
+  [UIImageView animateWithDuration:5 animations:
+   ^{
+     order66.alpha = 0.0f;
+   }
+                        completion:^(BOOL finished)
+   {
+     [[self.view viewWithTag:66] removeFromSuperview];
+     [self.SCCalculator_ reset];
+     self.result.text = @"0";
+   }];
+}
+
+
+#pragma mark - Easter Egg 8612
+
+- (void) easterEgg8612
+{
+  // Enter camera view
+  [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
+}
+
+
+#pragma mark - Easter Egg 100
+
+- (void) easterEgg100
+{
+  [self performSegueWithIdentifier:@"gijoeTableSegue" sender:nil];
+}
 
 #pragma mark - Authentication
 
@@ -396,7 +425,7 @@
 - (BOOL) checkAvailibilty
 {
   // Check if Buimetrics are availible
-  if(@available(iOS 11.0, *))
+  if(@available(iOS 11.0, *)) //!OCLINT conflict with compiler suggestion
   {
     if([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:nil])
       return self.context.biometryType == LABiometryTypeFaceID;

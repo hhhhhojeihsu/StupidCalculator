@@ -6,6 +6,20 @@
 	objectVersion = 50;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		DE7F84E22245042300B36E8D /* OCLint */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = DE7F84E32245042300B36E8D /* Build configuration list for PBXAggregateTarget "OCLint" */;
+			buildPhases = (
+				DE7F84E62245042700B36E8D /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = OCLint;
+			productName = OCLint;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		DE028F1C223A3D3D00644175 /* GIJOETableController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE028F1B223A3D3D00644175 /* GIJOETableController.m */; };
 		DE028F20223D358500644175 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE028F1F223D358500644175 /* TableCell.xib */; };
@@ -200,6 +214,9 @@
 					DE435155222CC7E500B6F670 = {
 						CreatedOnToolsVersion = 10.1;
 					};
+					DE7F84E22245042300B36E8D = {
+						CreatedOnToolsVersion = 10.1;
+					};
 				};
 			};
 			buildConfigurationList = DE435151222CC7E500B6F670 /* Build configuration list for PBXProject "StupidCalculator" */;
@@ -216,6 +233,7 @@
 			projectRoot = "";
 			targets = (
 				DE435155222CC7E500B6F670 /* StupidCalculator */,
+				DE7F84E22245042300B36E8D /* OCLint */,
 			);
 		};
 /* End PBXProject section */
@@ -237,6 +255,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DE7F84E62245042700B36E8D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "source ~/.bash_profile\ncd ${PROJECT_DIR}\nxcodebuild clean\nxcodebuild -configuration Debug build | xcpretty -r json-compilation-database -o compile_commands.json\noclint-json-compilation-database -e YTPlayerView.* -- -report-type xcode\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DE435152222CC7E500B6F670 /* Sources */ = {
@@ -431,6 +469,22 @@
 			};
 			name = Release;
 		};
+		DE7F84E42245042300B36E8D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DE7F84E52245042300B36E8D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -448,6 +502,15 @@
 			buildConfigurations = (
 				DE43516D222CC7E700B6F670 /* Debug */,
 				DE43516E222CC7E700B6F670 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DE7F84E32245042300B36E8D /* Build configuration list for PBXAggregateTarget "OCLint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DE7F84E42245042300B36E8D /* Debug */,
+				DE7F84E52245042300B36E8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

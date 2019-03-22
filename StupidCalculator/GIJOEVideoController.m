@@ -23,7 +23,8 @@
   NSString* baseURL = @"https://www.youtube.com/watch?v=ooIudVs8IWg&t=";
   
   // Access the timestamp of another tab bar page
-  GIJOEViewController* gijoeViewController = [self.tabBarController.viewControllers objectAtIndex:0];
+  GIJOEViewController* gijoeViewController;
+  gijoeViewController = [self.tabBarController.viewControllers objectAtIndex:0];
   NSString* time = gijoeViewController.timestamp;
   
   // Convert time to seconds

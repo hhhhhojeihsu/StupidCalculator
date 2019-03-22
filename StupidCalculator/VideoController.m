@@ -33,17 +33,10 @@
 {
   [super viewDidAppear:animated];
   UIDeviceOrientation deviceOrientation = [[UIDevice currentDevice] orientation];
-  switch(deviceOrientation)
-  {
-    case UIDeviceOrientationLandscapeRight:
-      [self playYTVideo:@"ooIudVs8IWg"];
-      break;
-    case UIDeviceOrientationLandscapeLeft:
-      [self playLocalVideo:@"Yee" dot:@"mp4"];
-      break;
-    default:
-      break;
-  }
+  if(deviceOrientation == UIDeviceOrientationLandscapeRight)
+    [self playYTVideo:@"ooIudVs8IWg"];
+  else if(deviceOrientation == UIDeviceOrientationLandscapeLeft)
+    [self playLocalVideo:@"Yee" dot:@"mp4"];
 }
 
 
@@ -59,7 +52,9 @@
       NSLog(@"Orientation: Portrait");
       
       // Unregist observer
-      [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+      [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                      name:UIDeviceOrientationDidChangeNotification
+                                                    object:nil];
       
       // Dismiss video controller and this view
       [self dismissViewControllerAnimated:YES completion:nil];
@@ -104,14 +99,18 @@
 - (void) playerItemDidReachEnd:(NSNotification *)notification
 {
   // Rewind to the start of video
-  AVPlayerItem *p = [notification object];
-  [p seekToTime:kCMTimeZero completionHandler:nil];
+  AVPlayerItem *player = [notification object];
+  [player seekToTime:kCMTimeZero completionHandler:nil];
   return;
 }
 
 - (void) playYTVideo:(NSString *)vidID
 {
-  YTPlayerView* ytView = [[YTPlayerView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+  YTPlayerView* ytView = [[YTPlayerView alloc]
+                          initWithFrame:CGRectMake(0,
+                                                   0,
+                                                   self.view.frame.size.width,
+                                                   self.view.frame.size.height)];
   [ytView loadWithVideoId:vidID];
   [self.view addSubview:ytView];
 }

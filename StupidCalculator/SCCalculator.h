@@ -38,6 +38,8 @@ typedef NS_ENUM(int, OPERATOR)
 - (BOOL) inputOperator:(int)operatorType;
 - (void) setResultToShown;
 - (void) saveToResult;
+- (BOOL) newOperation:(int)operatorType;
+- (void) oldOperation;
 
 @end
 

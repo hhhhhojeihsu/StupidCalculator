@@ -56,7 +56,8 @@
 
 #pragma mark - UIImagePickerControllerDelegate
 
-- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+- (void)imagePickerController:(UIImagePickerController*)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
   
   self.cameraView.image = info[UIImagePickerControllerOriginalImage];

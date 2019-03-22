@@ -50,6 +50,11 @@
 - (void) verifyIdentity;
 - (BOOL) checkAvailibilty;
 - (void) orientationChanged:(NSNotification *)note;
+- (void) easterEgg5566;
+- (void) easterEgg66;
+- (void) easterEgg8612;
+- (void) easterEgg100;
+
 
 @end
 

@@ -27,8 +27,8 @@
   // Load GIJOE dictionary from plist
   NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"GIJOE" ofType:@"plist"];
   NSDictionary* dict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
-  self.nameTable = [NSMutableArray arrayWithArray:[dict objectForKey:@"Name"]];
-  self.timeTable = [NSMutableArray arrayWithArray:[dict objectForKey:@"Timestamp"]];
+  self.nameTable = [NSMutableArray arrayWithArray:dict[@"Name"]];
+  self.timeTable = [NSMutableArray arrayWithArray:dict[@"Timestamp"]];
   
   // Init search controller
   self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
@@ -57,8 +57,7 @@
   // Based on search or actual table
   if(self.searchController.active)
     return [self.filteredResult count];
-  else
-    return [self.nameTable count];
+  return [self.nameTable count];
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -72,7 +71,7 @@
   if(cell == nil)
   {
     NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"TableCell" owner:self options:nil];
-    cell = [nib objectAtIndex:0];
+    cell = nib[0];
   }
 
   if(self.searchController.active)
@@ -88,7 +87,9 @@
   return cell;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+- (void)tableView:(UITableView *)tableView
+  commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
+  forRowAtIndexPath:(NSIndexPath *)indexPath
 {
   // Remove both name and time table from mutable array
   [self.nameTable removeObjectAtIndex:indexPath.row];
@@ -152,26 +153,27 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-  if([segue.identifier isEqualToString:@"gijoeCellSegue"])
+  if(![segue.identifier isEqualToString:@"gijoeCellSegue"])
+    return;
+  
+  NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+  
+  // Destination is UITabBarController. Need to access its view controllers
+  UITabBarController* destTabBarController = segue.destinationViewController;
+  GIJOEViewController* destViewController = destTabBarController.viewControllers[0];
+  
+  if(self.searchController.active)
   {
-    NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-    
-    // Destination is UITabBarController. Need to access its view controllers
-    UITabBarController* destTabBarController = segue.destinationViewController;
-    GIJOEViewController* destViewController = destTabBarController.viewControllers[0];
-    
-    if(self.searchController.active)
-    {
-      destViewController.name = [self.filteredResult objectAtIndex:indexPath.row];
-      destViewController.timestamp = [self.timeTable objectAtIndex:[self.nameTable indexOfObject:destViewController.name]];
-    }
-    else
-    {
-      destViewController.name = [self.nameTable objectAtIndex:indexPath.row];
-      destViewController.timestamp = [self.timeTable objectAtIndex:indexPath.row];
-    }
+    destViewController.name = [self.filteredResult objectAtIndex:indexPath.row];
+    destViewController.timestamp = [self.timeTable
+                                    objectAtIndex:
+                                    [self.nameTable indexOfObject:destViewController.name]];
   }
-  return;
+  else
+  {
+    destViewController.name = [self.nameTable objectAtIndex:indexPath.row];
+    destViewController.timestamp = [self.timeTable objectAtIndex:indexPath.row];
+  }
 }
 
 @end

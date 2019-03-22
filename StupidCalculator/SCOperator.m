@@ -30,8 +30,7 @@
   // If divider is 0 set exception flag
   if(arg2 == 0)
     return @[@0];
-  else
-    return @[@1, @(arg1 / arg2)];
+  return @[@1, @(arg1 / arg2)];
 }
 
 @end
