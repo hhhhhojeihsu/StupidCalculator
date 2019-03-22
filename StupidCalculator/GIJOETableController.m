@@ -55,11 +55,6 @@
   
   TableCell* cell = [tableView dequeueReusableCellWithIdentifier:tableIdentifier];
   NSString* name = [self.nameTable objectAtIndex:indexPath.row];
-  int selectedIndex = [[name componentsSeparatedByString:@" "][0] intValue];
-  if(self.searchController.active)
-  {
-    name = [self.filteredResult objectAtIndex:indexPath.row];
-  }
   
   if(cell == nil)
   {
@@ -67,10 +62,14 @@
     cell = [nib objectAtIndex:0];
   }
 
+  if(self.searchController.active)
+  {
+    name = [self.filteredResult objectAtIndex:indexPath.row];
+  }
   cell.cellImage.image = [UIImage imageNamed:name];
   cell.cellName.text = [name componentsSeparatedByString:@" "][1];
-  cell.cellTime.text = [self.timeTable objectAtIndex:
-                        selectedIndex];
+  
+  cell.cellTime.text = [self.timeTable objectAtIndex:[self.nameTable indexOfObject:name]];
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 
   return cell;
@@ -137,9 +136,8 @@
     
     if(self.searchController.active)
     {
-      int selectedIndex = [[[self.filteredResult objectAtIndex:indexPath.row] componentsSeparatedByString:@" "][0] intValue];
       destViewController.name = [self.filteredResult objectAtIndex:indexPath.row];
-      destViewController.timestamp = [self.timeTable objectAtIndex:selectedIndex];
+      destViewController.timestamp = [self.timeTable objectAtIndex:[self.nameTable indexOfObject:destViewController.name]];
     }
     else
     {
