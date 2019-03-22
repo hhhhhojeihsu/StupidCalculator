@@ -40,15 +40,12 @@
 - (IBAction)equalButton:(id)sender;
 
 @property (strong, nonatomic) SCCalculator* SCCalculator_;
-@property (strong, nonatomic) LAContext* context;
 
 - (void) checkException;
 - (void) itemDidFinishPlaying:(NSNotification*) notification;
 - (void) checkLength;
 - (void) checkResult;
 - (void) doneButtonClicked;
-- (void) verifyIdentity;
-- (BOOL) checkAvailibilty;
 - (void) orientationChanged:(NSNotification *)note;
 - (void) easterEgg5566;
 - (void) easterEgg66;

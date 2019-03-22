@@ -12,11 +12,14 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface AuthFailedViewController : UIViewController
+@interface AuthViewController : UIViewController
 
 - (IBAction)retryButton:(id)sender;
 
 @property (strong, nonatomic) LAContext* context;
+
+- (BOOL) checkAvailibilty;
+- (void) verify;
 
 @end
 

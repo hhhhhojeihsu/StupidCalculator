@@ -35,7 +35,7 @@
 		DE879898223F6EC4009CF7AF /* GIJOEVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE879897223F6EC4009CF7AF /* GIJOEVideoController.m */; };
 		DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A513222E1BB400FD1FC0 /* SCOperator.m */; };
 		DEC2A51B2230451800FD1FC0 /* Stahp.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */; };
-		DEC2A5212234FB2500FD1FC0 /* AuthFailedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */; };
+		DEC2A5212234FB2500FD1FC0 /* AuthViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5202234FB2500FD1FC0 /* AuthViewController.m */; };
 		DEC2A5262236139900FD1FC0 /* VideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A5252236139900FD1FC0 /* VideoController.m */; };
 		DEC2A5282236407300FD1FC0 /* Yee.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = DEC2A5272236407300FD1FC0 /* Yee.mp4 */; };
 		DEC2A52F2236D64F00FD1FC0 /* YTPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = DEC2A52E2236D64F00FD1FC0 /* YTPlayerView.m */; };
@@ -68,8 +68,8 @@
 		DEC2A512222E1BB400FD1FC0 /* SCOperator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SCOperator.h; sourceTree = "<group>"; };
 		DEC2A513222E1BB400FD1FC0 /* SCOperator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SCOperator.m; sourceTree = "<group>"; };
 		DEC2A51A2230451800FD1FC0 /* Stahp.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Stahp.mp4; sourceTree = "<group>"; };
-		DEC2A51F2234FB2500FD1FC0 /* AuthFailedViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthFailedViewController.h; sourceTree = "<group>"; };
-		DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthFailedViewController.m; sourceTree = "<group>"; };
+		DEC2A51F2234FB2500FD1FC0 /* AuthViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthViewController.h; sourceTree = "<group>"; };
+		DEC2A5202234FB2500FD1FC0 /* AuthViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthViewController.m; sourceTree = "<group>"; };
 		DEC2A5242236139900FD1FC0 /* VideoController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoController.h; sourceTree = "<group>"; };
 		DEC2A5252236139900FD1FC0 /* VideoController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoController.m; sourceTree = "<group>"; };
 		DEC2A5272236407300FD1FC0 /* Yee.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yee.mp4; sourceTree = "<group>"; };
@@ -143,8 +143,8 @@
 				DE028F1B223A3D3D00644175 /* GIJOETableController.m */,
 				DE43515C222CC7E500B6F670 /* ViewController.h */,
 				DE43515D222CC7E500B6F670 /* ViewController.m */,
-				DEC2A51F2234FB2500FD1FC0 /* AuthFailedViewController.h */,
-				DEC2A5202234FB2500FD1FC0 /* AuthFailedViewController.m */,
+				DEC2A51F2234FB2500FD1FC0 /* AuthViewController.h */,
+				DEC2A5202234FB2500FD1FC0 /* AuthViewController.m */,
 				DEC2A5242236139900FD1FC0 /* VideoController.h */,
 				DEC2A5252236139900FD1FC0 /* VideoController.m */,
 				DEC2A53622378DA800FD1FC0 /* CameraController.h */,
@@ -286,7 +286,7 @@
 				DEC2A53822378DA800FD1FC0 /* CameraController.m in Sources */,
 				DEE15DEA222D54F90086B36D /* SCCalculator.m in Sources */,
 				DE028F23223D3BC600644175 /* TableCell.m in Sources */,
-				DEC2A5212234FB2500FD1FC0 /* AuthFailedViewController.m in Sources */,
+				DEC2A5212234FB2500FD1FC0 /* AuthViewController.m in Sources */,
 				DE435169222CC7E700B6F670 /* main.m in Sources */,
 				DE43515B222CC7E500B6F670 /* AppDelegate.m in Sources */,
 				DEC2A5262236139900FD1FC0 /* VideoController.m in Sources */,

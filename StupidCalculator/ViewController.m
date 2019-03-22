@@ -34,8 +34,13 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
   self.SCCalculator_ = [[SCCalculator alloc] init];
-  self.context = [[LAContext alloc] init];
-  [self verifyIdentity];
+  
+  // Start monitor orientation change
+  [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(orientationChanged:)
+                                               name:UIDeviceOrientationDidChangeNotification
+                                             object:[UIDevice currentDevice]];
 }
 
 // Override. Set the calcuation screen's status bar to white
@@ -386,51 +391,6 @@
 - (void) easterEgg100
 {
   [self performSegueWithIdentifier:@"gijoeTableSegue" sender:nil];
-}
-
-#pragma mark - Authentication
-
-- (void) verifyIdentity
-{
-  // Verify identy
-  if(![self checkAvailibilty])
-    return;
-  [self.context
-   evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics
-   localizedReason:@"Authentication is required for access"
-   reply:^(BOOL success, NSError* error)
-   {
-     if(success)
-     {
-       dispatch_async(dispatch_get_main_queue(), ^{
-         [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
-         [[NSNotificationCenter defaultCenter] addObserver:self
-                                                  selector:@selector(orientationChanged:)
-                                                      name:UIDeviceOrientationDidChangeNotification
-                                                    object:[UIDevice currentDevice]];
-       });
-       NSLog(@"Verified");
-     }
-     else
-     {
-       dispatch_async(dispatch_get_main_queue(), ^{
-         [self performSegueWithIdentifier:@"identificationFailed" sender:nil];
-       });
-       NSLog(@"Failed");
-     }
-   }];
-  return;
-}
-
-- (BOOL) checkAvailibilty
-{
-  // Check if Buimetrics are availible
-  if(@available(iOS 11.0, *)) //!OCLINT conflict with compiler suggestion
-  {
-    if([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:nil])
-      return self.context.biometryType == LABiometryTypeFaceID;
-  }
-  return FALSE;
 }
 
 
