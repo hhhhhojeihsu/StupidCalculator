@@ -66,7 +66,6 @@
       break;
   }
 
-
   // Execute old operation (requires two operand)
   switch(self.lastOperator)
   {
@@ -115,7 +114,6 @@
   [self.shownString setString:@""];
   [self.shownString appendFormat:@"%lg", self.doubleResult];
 }
-
 
 - (void) saveToResult
 {

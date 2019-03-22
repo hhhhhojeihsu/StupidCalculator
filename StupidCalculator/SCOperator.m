@@ -14,16 +14,20 @@
 {
   return arg1 + arg2;
 }
+
 - (double) minus:(double)arg1 with:(double)arg2
 {
   return arg1 - arg2;
 }
+
 - (double) multi:(double)arg1 with:(double)arg2
 {
   return arg1 * arg2;
 }
+
 - (NSArray *) divide:(double)arg1 with:(double)arg2
 {
+  // If divider is 0 set exception flag
   if(arg2 == 0)
     return @[@0];
   else

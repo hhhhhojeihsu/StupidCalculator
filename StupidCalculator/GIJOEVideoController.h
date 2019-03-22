@@ -13,6 +13,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface GIJOEVideoController : UIViewController
+
 @property (weak, nonatomic) IBOutlet WKWebView *gijoeWebVideo;
 
 @end

@@ -16,12 +16,16 @@
 
 @implementation GIJOETableController
 
+
+#pragma mark - View
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
+  
+  // Load GIJOE dictionary from plist
   NSString* plistPath = [[NSBundle mainBundle] pathForResource:@"GIJOE" ofType:@"plist"];
-
   NSDictionary* dict = [[NSDictionary alloc] initWithContentsOfFile:plistPath];
   self.nameTable = [NSMutableArray arrayWithArray:[dict objectForKey:@"Name"]];
   self.timeTable = [NSMutableArray arrayWithArray:[dict objectForKey:@"Timestamp"]];
@@ -36,13 +40,21 @@
   self.definesPresentationContext = TRUE;
 }
 
+
+#pragma mark - Interface
+
 - (IBAction)backButton:(id)sender
 {
+  // Back to calculator interface
   [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
+
+#pragma mark - UITableViewDataSource
+
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
+  // Based on search or actual table
   if(self.searchController.active)
     return [self.filteredResult count];
   else
@@ -56,6 +68,7 @@
   TableCell* cell = [tableView dequeueReusableCellWithIdentifier:tableIdentifier];
   NSString* name = [self.nameTable objectAtIndex:indexPath.row];
   
+  // If the cell is not loaded from nib, then load the first time
   if(cell == nil)
   {
     NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"TableCell" owner:self options:nil];
@@ -75,6 +88,17 @@
   return cell;
 }
 
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+  // Remove both name and time table from mutable array
+  [self.nameTable removeObjectAtIndex:indexPath.row];
+  [self.timeTable removeObjectAtIndex:indexPath.row];
+  [tableView reloadData];
+}
+
+
+#pragma mark - UITableViewDelegate
+
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
   return 80;
@@ -86,7 +110,7 @@
 
   TableCell* cell = [tableView cellForRowAtIndexPath:indexPath];
   
-  
+  // Checkmark only shown in actual table but not search result
   if(!self.searchController.active)
   {
     cell.accessoryType = UITableViewCellAccessoryCheckmark;
@@ -96,12 +120,8 @@
   return;
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-  [self.nameTable removeObjectAtIndex:indexPath.row];
-  [self.timeTable removeObjectAtIndex:indexPath.row];
-  [tableView reloadData];
-}
+
+#pragma mark - UISearchResultsUpdating
 
 - (void)updateSearchResultsForSearchController:(UISearchController *)searchController
 {
@@ -110,26 +130,32 @@
   [self.tableView reloadData];
 }
 
-- (void)searchForText:(NSString *)searchText
-{
-  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", searchText];
-  
-  self.filteredResult = [self.nameTable filteredArrayUsingPredicate:predicate];
-  return;
-}
-
 - (void)searchBar:(UISearchBar*)searchBar selectedScopeButtonIndexDidChange:(NSInteger)selectedScope
 {
+  // Search whenever the search context changed
   [self updateSearchResultsForSearchController:self.searchController];
   return;
 }
 
+
+#pragma mark - Search
+
+- (void)searchForText:(NSString *)searchText
+{
+  NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", searchText];
+  self.filteredResult = [self.nameTable filteredArrayUsingPredicate:predicate];
+  return;
+}
+
+
 #pragma mark - Navigation
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
   if([segue.identifier isEqualToString:@"gijoeCellSegue"])
   {
     NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+    
     // Destination is UITabBarController. Need to access its view controllers
     UITabBarController* destTabBarController = segue.destinationViewController;
     GIJOEViewController* destViewController = destTabBarController.viewControllers[0];

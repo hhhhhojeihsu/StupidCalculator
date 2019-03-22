@@ -14,6 +14,9 @@
 
 @implementation CameraController
 
+
+#pragma mark - View
+
 - (void)viewDidLoad {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
@@ -23,38 +26,26 @@
 - (void)viewDidAppear:(BOOL)animated
 {
   [super viewDidAppear:animated];
+  
+  // To prevent trigger camera whenever the view appear
   if(!self.cameraTriggered)
   {
     self.cameraTriggered = TRUE;
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
-    //picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypeCamera;
     [self presentViewController:picker animated:YES completion:NULL];
   }
 }
 
-- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+// Override. Set the calcuation screen's status bar to white
+- (UIStatusBarStyle) preferredStatusBarStyle
 {
-  
-  self.cameraView.image= info[UIImagePickerControllerOriginalImage];
-  [picker dismissViewControllerAnimated:YES completion:NULL];
+  return UIStatusBarStyleLightContent;
 }
 
-- (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker
-{
-  [picker dismissViewControllerAnimated:YES completion:NULL];
-}
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+#pragma mark - Action Button
 
 - (IBAction)cameraDoneButton:(id)sender
 {
@@ -62,10 +53,19 @@
   return;
 }
 
-// Override. Set the calcuation screen's status bar to white
-- (UIStatusBarStyle) preferredStatusBarStyle
+
+#pragma mark - UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
-  return UIStatusBarStyleLightContent;
+  
+  self.cameraView.image = info[UIImagePickerControllerOriginalImage];
+  [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController*)picker
+{
+  [picker dismissViewControllerAnimated:YES completion:NULL];
 }
 
 @end

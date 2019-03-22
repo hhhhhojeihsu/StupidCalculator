@@ -39,7 +39,6 @@ typedef NS_ENUM(int, OPERATOR)
 - (void) setResultToShown;
 - (void) saveToResult;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -7,11 +7,6 @@
 //
 
 #import "ViewController.h"
-#define UPDATE_LABEL self.result.text = self.SCCalculator_.shownString;
-#define CHECK_EXCEPTION_RESULT \
-        [self checkException];\
-        [self checkResult];
-#define SET_C_DETECT_LENGTH [self.acOutlet setTitle:@"C" forState:UIControlStateNormal]; [self checkLength];
 
 @interface ViewController ()
 
@@ -19,13 +14,34 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+
+#pragma mark - Macro
+
+#define UPDATE_LABEL self.result.text = self.SCCalculator_.shownString;
+#define CHECK_EXCEPTION_RESULT \
+[self checkException];\
+[self checkResult];
+#define SET_C_DETECT_LENGTH [self.acOutlet setTitle:@"C" forState:UIControlStateNormal]; [self checkLength];
+
+
+#pragma mark - View
+
+- (void)viewDidLoad
+{
   [super viewDidLoad];
   // Do any additional setup after loading the view, typically from a nib.
   self.SCCalculator_ = [[SCCalculator alloc] init];
   self.context = [[LAContext alloc] init];
   [self verifyIdentity];
 }
+
+// Override. Set the calcuation screen's status bar to white
+- (UIStatusBarStyle) preferredStatusBarStyle
+{
+  return UIStatusBarStyleLightContent;
+}
+
+#pragma mark - Button Action
 
 - (IBAction)acButton:(id)sender
 {
@@ -194,8 +210,12 @@
   }
 }
 
+
+#pragma mark - Divide Exception
+
 - (void) checkException
 {
+  // Invoke when executing divide
   if(self.SCCalculator_.divideException)
   {
     UIAlertController* alert =
@@ -215,8 +235,12 @@
   }
 }
 
+
+#pragma mark - Stahp Video
+
 - (void) itemDidFinishPlaying:(NSNotification*) notification
 {
+  // When video is done playing, dismiss video controller and remove observer
   [self dismissViewControllerAnimated:YES completion:nil];
   [[NSNotificationCenter defaultCenter] removeObserver:self name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
 }
@@ -232,28 +256,31 @@
   self.result.text = @"0";
   [self.SCCalculator_ reset];
   
+  // Load video
   NSString *videoPath = [[NSBundle mainBundle] pathForResource:@"Stahp" ofType:@"mp4"];
   NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
   AVPlayer *player = [AVPlayer playerWithURL:videoURL];
   AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
   playerViewController.player = player;
   
+  // Regist observer
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(itemDidFinishPlaying:) name:AVPlayerItemDidPlayToEndTimeNotification object:nil];
   
+  // Play video
   [playerViewController.player play];
   [self presentViewController:playerViewController animated:YES completion:nil];
 }
 
+
+#pragma mark - Easter Egg Entry
+
 - (void) checkResult
 {
-  /*
-  if(self.SCCalculator_.lastOperator == EMPTY)
-    return;
-   */
   switch([self.result.text intValue])
   {
   case 5566:
   {
+    // Create and represent webview
     WKWebViewConfiguration* webConfiguration = [[WKWebViewConfiguration alloc] init];
     WKWebView* webView = [[WKWebView alloc]
                           initWithFrame:CGRectMake(0, 70, self.view.frame.size.width, self.view.frame.size.height - 70)
@@ -264,6 +291,7 @@
     [webView loadRequest:request];
     [self.view addSubview:webView];
     
+    // Create done button
     UIButton *doneButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     CGRect doneButtonFrame = CGRectMake(0, 25, 100, 44);
     doneButton.frame = doneButtonFrame;
@@ -273,31 +301,41 @@
                    action:@selector(doneButtonClicked)
          forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:doneButton];
+    
     break;
   }
   case 66:
   {
+    // Create image
     UIImageView *order66 = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 307, 212)];
     order66.center = self.view.center;
     order66.image = [UIImage imageNamed:@"order66"];
     order66.tag = 66;
     [self.view addSubview:order66];
-    [UIImageView animateWithDuration:5 animations:^{
+    
+    // Set dim animation
+    [UIImageView animateWithDuration:5 animations:
+    ^{
       order66.alpha = 0.0f;
-    } completion:^(BOOL finished){
+    }
+    completion:^(BOOL finished)
+    {
       [[self.view viewWithTag:66] removeFromSuperview];
       [self.SCCalculator_ reset];
       self.result.text = @"0";
     }];
+    
     break;
   }
   case 8612:
   {
+    // Enter camera view
     [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
     break;
   }
   case 100:
   {
+    // Enter GIJOE table view
     [self performSegueWithIdentifier:@"gijoeTableSegue" sender:nil];
     break;
   }
@@ -307,8 +345,12 @@
   return;
 }
 
+
+#pragma mark - Web Easter Egg
+
 - (void) doneButtonClicked
 {
+  // Done button pressed in 5566 webview
   [[self.view viewWithTag:5566] removeFromSuperview];
   [[self.view viewWithTag:5567] removeFromSuperview];
   [self.SCCalculator_ reset];
@@ -316,8 +358,12 @@
   return;
 }
 
+
+#pragma mark - Authentication
+
 - (void) verifyIdentity
 {
+  // Verify identy
   if(![self checkAvailibilty])
     return;
   [self.context
@@ -349,6 +395,7 @@
 
 - (BOOL) checkAvailibilty
 {
+  // Check if Buimetrics are availible
   if(@available(iOS 11.0, *))
   {
     if([self.context canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:nil])
@@ -356,6 +403,9 @@
   }
   return FALSE;
 }
+
+
+#pragma mark - Orientation
 
 - (void) orientationChanged:(NSNotification *)note
 {
@@ -377,12 +427,5 @@
       break;
   };
 }
-
-// Override. Set the calcuation screen's status bar to white
-- (UIStatusBarStyle) preferredStatusBarStyle
-{
-  return UIStatusBarStyleLightContent;
-}
-
 
 @end

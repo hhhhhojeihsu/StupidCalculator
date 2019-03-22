@@ -15,8 +15,9 @@
 
 @interface ViewController : UIViewController
 
-@property (strong, nonatomic) SCCalculator* SCCalculator_;
 @property (weak, nonatomic) IBOutlet UILabel* result;
+@property (weak, nonatomic) IBOutlet UIButton* acOutlet;
+
 - (IBAction)acButton:(id)sender;
 - (IBAction)pmButton:(id)sender;
 - (IBAction)percentButton:(id)sender;
@@ -37,19 +38,17 @@
 - (IBAction)twoZeroButton:(id)sender;
 - (IBAction)dotButton:(id)sender;
 - (IBAction)equalButton:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton* acOutlet;
+
+@property (strong, nonatomic) SCCalculator* SCCalculator_;
+@property (strong, nonatomic) LAContext* context;
 
 - (void) checkException;
 - (void) itemDidFinishPlaying:(NSNotification*) notification;
 - (void) checkLength;
 - (void) checkResult;
 - (void) doneButtonClicked;
-
-@property (strong, nonatomic) LAContext* context;
-
 - (void) verifyIdentity;
 - (BOOL) checkAvailibilty;
-
 - (void) orientationChanged:(NSNotification *)note;
 
 @end

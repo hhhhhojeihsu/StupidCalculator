@@ -12,12 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface GIJOETableController : UIViewController <UITableViewDelegate, UITableViewDataSource, UISearchResultsUpdating, UISearchBarDelegate>
 
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
 @property (strong, nonatomic) NSMutableArray* nameTable;
 @property (strong, nonatomic) NSMutableArray* timeTable;
-@property (strong, nonatomic) UISearchController *searchController;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-- (void)searchForText:(NSString *)searchText;
 @property (strong, nonatomic) NSArray* filteredResult;
+@property (strong, nonatomic) UISearchController *searchController;
+
+- (void)searchForText:(NSString *)searchText;
+
 @end
 
 NS_ASSUME_NONNULL_END

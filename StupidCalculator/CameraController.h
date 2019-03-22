@@ -10,11 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CameraController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface CameraController : UIViewController <UIImagePickerControllerDelegate>
+
+@property (weak, nonatomic) IBOutlet UIImageView *cameraView;
+
+- (IBAction)cameraDoneButton:(id)sender;
 
 @property (nonatomic) BOOL cameraTriggered;
-@property (weak, nonatomic) IBOutlet UIImageView *cameraView;
-- (IBAction)cameraDoneButton:(id)sender;
 
 @end
 

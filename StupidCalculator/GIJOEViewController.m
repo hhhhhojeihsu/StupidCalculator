@@ -17,20 +17,12 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  // Do any additional setup after loading the view.
+  
+  // Copy context sent from segue to outlet
   self.gijoeName.text = [self.name componentsSeparatedByString:@" "][1];
   self.gijoeTimestamp.text = [NSString stringWithFormat:@"Timestamp: %@", self.timestamp];
   self.gijoeImage.image = [UIImage imageNamed:self.name];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

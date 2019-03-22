@@ -11,6 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface TableCell : UITableViewCell
+
 @property (weak, nonatomic) IBOutlet UIImageView *cellImage;
 @property (weak, nonatomic) IBOutlet UILabel *cellName;
 @property (weak, nonatomic) IBOutlet UILabel *cellTime;

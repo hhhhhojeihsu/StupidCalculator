@@ -19,6 +19,7 @@
 {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
+  
   NSString* baseURL = @"https://www.youtube.com/watch?v=ooIudVs8IWg&t=";
   
   // Access the timestamp of another tab bar page
@@ -35,14 +36,5 @@
   [self.gijoeWebVideo loadRequest:request];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

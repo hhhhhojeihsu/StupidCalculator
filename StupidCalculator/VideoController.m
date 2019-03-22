@@ -14,10 +14,15 @@
 
 @implementation VideoController
 
+
+#pragma mark - View
+
 - (void)viewDidLoad
 {
   [super viewDidLoad];
   // Do any additional setup after loading the view.
+  
+  // Detect orientation change
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(orientationChanged:)
                                                name:UIDeviceOrientationDidChangeNotification
@@ -41,6 +46,9 @@
   }
 }
 
+
+#pragma mark - Orientation
+
 - (void) orientationChanged:(NSNotification *)note
 {
   UIDevice * device = note.object;
@@ -49,7 +57,11 @@
   {
     case UIDeviceOrientationPortrait:
       NSLog(@"Orientation: Portrait");
+      
+      // Unregist observer
       [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
+      
+      // Dismiss video controller and this view
       [self dismissViewControllerAnimated:YES completion:nil];
       [self dismissViewControllerAnimated:YES completion:nil];
       break;
@@ -64,17 +76,25 @@
   };
 }
 
+
+#pragma mark - Video
+
 - (void) playLocalVideo:(NSString *)name dot:(NSString *)ext
 {
+  // Load video
   NSString *videoPath = [[NSBundle mainBundle] pathForResource:name
                                                         ofType:ext];
   NSURL *videoURL = [NSURL fileURLWithPath:videoPath];
   AVPlayer *player = [AVPlayer playerWithURL:videoURL];
   player.actionAtItemEnd = AVPlayerActionAtItemEndNone;
+  
+  // Regist observer when video finished playing
   [[NSNotificationCenter defaultCenter] addObserver:self
                                            selector:@selector(playerItemDidReachEnd:)
                                                name:AVPlayerItemDidPlayToEndTimeNotification
                                              object:[player currentItem]];
+  
+  // Play video
   AVPlayerViewController *playerViewController = [[AVPlayerViewController alloc] init];
   playerViewController.player = player;
   [playerViewController.player play];
@@ -83,6 +103,7 @@
 
 - (void) playerItemDidReachEnd:(NSNotification *)notification
 {
+  // Rewind to the start of video
   AVPlayerItem *p = [notification object];
   [p seekToTime:kCMTimeZero completionHandler:nil];
   return;
@@ -94,15 +115,5 @@
   [ytView loadWithVideoId:vidID];
   [self.view addSubview:ytView];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
