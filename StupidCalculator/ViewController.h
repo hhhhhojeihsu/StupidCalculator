@@ -12,8 +12,9 @@
 #import <WebKit/WebKit.h>
 #import "SCCalculator.h"
 #import <LocalAuthentication/LAContext.h>
+#import <MessageUI/MessageUI.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <MFMailComposeViewControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel* result;
 @property (weak, nonatomic) IBOutlet UIButton* acOutlet;
@@ -51,6 +52,7 @@
 - (void) easterEgg66;
 - (void) easterEgg8612;
 - (void) easterEgg100;
+- (void) easterEgg10;
 
 
 @end

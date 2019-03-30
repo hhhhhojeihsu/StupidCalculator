@@ -30,6 +30,7 @@
 		DE435163222CC7E700B6F670 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DE435162222CC7E700B6F670 /* Assets.xcassets */; };
 		DE435166222CC7E700B6F670 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE435164222CC7E700B6F670 /* LaunchScreen.storyboard */; };
 		DE435169222CC7E700B6F670 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DE435168222CC7E700B6F670 /* main.m */; };
+		DE5B5E47224F5B88008EC47E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE5B5E46224F5B88008EC47E /* MessageUI.framework */; };
 		DE879892223F37F0009CF7AF /* GIJOE.plist in Resources */ = {isa = PBXBuildFile; fileRef = DE879891223F37F0009CF7AF /* GIJOE.plist */; };
 		DE879895223F4074009CF7AF /* GIJOEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE879894223F4074009CF7AF /* GIJOEViewController.m */; };
 		DE879898223F6EC4009CF7AF /* GIJOEVideoController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE879897223F6EC4009CF7AF /* GIJOEVideoController.m */; };
@@ -60,6 +61,7 @@
 		DE435165222CC7E700B6F670 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DE435167222CC7E700B6F670 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DE435168222CC7E700B6F670 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DE5B5E46224F5B88008EC47E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		DE879891223F37F0009CF7AF /* GIJOE.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = GIJOE.plist; sourceTree = "<group>"; };
 		DE879893223F4074009CF7AF /* GIJOEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GIJOEViewController.h; sourceTree = "<group>"; };
 		DE879894223F4074009CF7AF /* GIJOEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GIJOEViewController.m; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE5B5E47224F5B88008EC47E /* MessageUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,7 @@
 			children = (
 				DE435158222CC7E500B6F670 /* StupidCalculator */,
 				DE435157222CC7E500B6F670 /* Products */,
+				DE5B5E45224F5B87008EC47E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +128,14 @@
 				DE435168222CC7E700B6F670 /* main.m */,
 			);
 			path = StupidCalculator;
+			sourceTree = "<group>";
+		};
+		DE5B5E45224F5B87008EC47E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE5B5E46224F5B88008EC47E /* MessageUI.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		DEC2A5192230450E00FD1FC0 /* Resources */ = {

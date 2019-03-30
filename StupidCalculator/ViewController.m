@@ -255,7 +255,6 @@
                                                 object:nil];
 }
 
-
 - (void) checkLength
 {
   if([self.result.text length] <= 12)
@@ -303,6 +302,8 @@
   case 100:
     [self easterEgg100];
     break;
+  case 10:
+    [self easterEgg10];
   default:
     break;
   }
@@ -310,7 +311,7 @@
 }
 
 
-#pragma mark - Easter Egg 5566
+#pragma mark - Easter Egg Implementation
 
 - (void) easterEgg5566
 {
@@ -340,7 +341,6 @@
   [self.view addSubview:doneButton];
 }
 
-
 - (void) doneButtonClicked
 {
   // Done button pressed in 5566 webview
@@ -350,9 +350,6 @@
   self.result.text = @"0";
   return;
 }
-
-
-#pragma mark - Easter Egg 66
 
 - (void) easterEgg66
 {
@@ -376,23 +373,35 @@
    }];
 }
 
-
-#pragma mark - Easter Egg 8612
-
 - (void) easterEgg8612
 {
   // Enter camera view
   [self performSegueWithIdentifier:@"cameraSegue" sender:nil];
 }
 
-
-#pragma mark - Easter Egg 100
-
 - (void) easterEgg100
 {
   [self performSegueWithIdentifier:@"gijoeTableSegue" sender:nil];
 }
 
+- (void) easterEgg10
+{
+  if([MFMailComposeViewController canSendMail])
+  {
+    MFMailComposeViewController* mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:@"Error report"];
+    [mc setMessageBody:@"<h2>鍾山曉</h2>" isHTML:TRUE];
+    [mc setToRecipients:@[@"help@example.com"]];
+    
+    [self presentViewController:mc animated:TRUE completion:nil];
+  }
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+  [self dismissViewControllerAnimated:YES completion:NULL];
+}
 
 #pragma mark - Orientation
 
