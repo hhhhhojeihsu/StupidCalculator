@@ -450,6 +450,7 @@
                         <segue destination="q3u-44-QxA" kind="show" identifier="orientationChangedDetected" id="7ui-uB-eyv"/>
                         <segue destination="Ru3-LB-I0d" kind="show" identifier="cameraSegue" id="zdA-1B-jLv"/>
                         <segue destination="MnB-fe-tUI" kind="show" identifier="gijoeTableSegue" id="6vo-S9-wgF"/>
+                        <segue destination="A2V-lo-88o" kind="show" identifier="LocationViewSegue" id="ZXc-Et-FWo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -677,6 +678,122 @@
             </objects>
             <point key="canvasLocation" x="764" y="720"/>
         </scene>
+        <!--Location View Controller-->
+        <scene sceneID="nuC-hE-HfA">
+            <objects>
+                <viewController id="A2V-lo-88o" customClass="LocationViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FCH-f7-4Yq">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hda-gw-oe4">
+                                <rect key="frame" x="20" y="197" width="148" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="148" id="GhL-Os-dCn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="Sh3-zl-woY">
+                                <rect key="frame" x="186" y="197" width="208" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="cMA-vt-0dC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="26" translatesAutoresizingMaskIntoConstraints="NO" id="4k4-mu-Hrl">
+                                <rect key="frame" x="186" y="266" width="208" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="n4z-lf-znZ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hqi-ak-liS">
+                                <rect key="frame" x="20" y="335" width="148" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="148" id="Akx-Jq-Zqz"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address Placeholder" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="yx1-K4-CEA">
+                                <rect key="frame" x="186" y="335" width="208" height="99"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="208" id="Gk2-eE-Hmm"/>
+                                    <constraint firstAttribute="height" constant="99" id="LDt-Js-aR3"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longtitude:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zeY-pT-654">
+                                <rect key="frame" x="20" y="266" width="148" height="36"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="148" id="T2u-UW-Erv"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="FBI" translatesAutoresizingMaskIntoConstraints="NO" id="P3k-7U-yjh">
+                                <rect key="frame" x="20" y="589" width="374" height="199"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="199" id="JD7-Xu-Ygz"/>
+                                    <constraint firstAttribute="width" constant="374" id="LFH-HU-4vi"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="374" id="T9w-Wz-NW7"/>
+                                    <constraint firstAttribute="height" constant="199" id="alZ-jZ-dhO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FBI Is On The Way" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rvh-vg-lqE">
+                                <rect key="frame" x="39" y="89" width="336" height="43"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lwF-jD-pAP" firstAttribute="trailing" secondItem="Sh3-zl-woY" secondAttribute="trailing" constant="20" id="5ub-LN-H2l"/>
+                            <constraint firstItem="lwF-jD-pAP" firstAttribute="trailing" secondItem="yx1-K4-CEA" secondAttribute="trailing" constant="20" id="9wz-wr-yHQ"/>
+                            <constraint firstItem="hda-gw-oe4" firstAttribute="leading" secondItem="lwF-jD-pAP" secondAttribute="leading" constant="20" id="CJn-H0-Pxq"/>
+                            <constraint firstItem="4k4-mu-Hrl" firstAttribute="leading" secondItem="zeY-pT-654" secondAttribute="trailing" constant="18" id="DiD-TI-Wy8"/>
+                            <constraint firstItem="rvh-vg-lqE" firstAttribute="top" secondItem="lwF-jD-pAP" secondAttribute="top" constant="45" id="EW2-dK-IaF"/>
+                            <constraint firstItem="P3k-7U-yjh" firstAttribute="leading" secondItem="lwF-jD-pAP" secondAttribute="leading" constant="20" id="L1v-u5-SEL"/>
+                            <constraint firstItem="zeY-pT-654" firstAttribute="top" secondItem="hda-gw-oe4" secondAttribute="bottom" constant="33" id="Lci-tX-iOq"/>
+                            <constraint firstItem="lwF-jD-pAP" firstAttribute="trailing" secondItem="4k4-mu-Hrl" secondAttribute="trailing" constant="20" id="Lqv-Ec-VQJ"/>
+                            <constraint firstItem="rvh-vg-lqE" firstAttribute="leading" secondItem="lwF-jD-pAP" secondAttribute="leading" constant="39" id="Mzj-xv-Amd"/>
+                            <constraint firstItem="Sh3-zl-woY" firstAttribute="top" secondItem="rvh-vg-lqE" secondAttribute="bottom" constant="65" id="RS5-43-6hQ"/>
+                            <constraint firstItem="hqi-ak-liS" firstAttribute="leading" secondItem="lwF-jD-pAP" secondAttribute="leading" constant="20" id="WAH-fz-WTk"/>
+                            <constraint firstItem="4k4-mu-Hrl" firstAttribute="top" secondItem="Sh3-zl-woY" secondAttribute="bottom" constant="33" id="Z4d-1C-bFz"/>
+                            <constraint firstItem="Sh3-zl-woY" firstAttribute="leading" secondItem="hda-gw-oe4" secondAttribute="trailing" constant="18" id="brE-Tg-YZh"/>
+                            <constraint firstItem="lwF-jD-pAP" firstAttribute="trailing" secondItem="rvh-vg-lqE" secondAttribute="trailing" constant="39" id="dP6-KA-M8x"/>
+                            <constraint firstItem="lwF-jD-pAP" firstAttribute="trailing" secondItem="P3k-7U-yjh" secondAttribute="trailing" constant="20" id="isH-QU-Phl"/>
+                            <constraint firstItem="yx1-K4-CEA" firstAttribute="leading" secondItem="hqi-ak-liS" secondAttribute="trailing" constant="18" id="kbQ-fM-SPb"/>
+                            <constraint firstItem="hda-gw-oe4" firstAttribute="top" secondItem="rvh-vg-lqE" secondAttribute="bottom" constant="65" id="kty-Vp-rnw"/>
+                            <constraint firstItem="yx1-K4-CEA" firstAttribute="top" secondItem="4k4-mu-Hrl" secondAttribute="bottom" constant="33" id="nlK-4i-WQh"/>
+                            <constraint firstItem="lwF-jD-pAP" firstAttribute="bottom" secondItem="P3k-7U-yjh" secondAttribute="bottom" constant="74" id="pHM-vv-sxR"/>
+                            <constraint firstItem="hqi-ak-liS" firstAttribute="top" secondItem="zeY-pT-654" secondAttribute="bottom" constant="33" id="pgQ-vT-hsi"/>
+                            <constraint firstItem="zeY-pT-654" firstAttribute="leading" secondItem="lwF-jD-pAP" secondAttribute="leading" constant="20" id="zRS-XL-1Y8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="lwF-jD-pAP"/>
+                    </view>
+                    <connections>
+                        <outlet property="address" destination="yx1-K4-CEA" id="G8i-oV-Vre"/>
+                        <outlet property="fbiImage" destination="P3k-7U-yjh" id="hfL-S7-RYF"/>
+                        <outlet property="latitude" destination="Sh3-zl-woY" id="5Ni-na-2f4"/>
+                        <outlet property="longtitude" destination="4k4-mu-Hrl" id="qsS-E2-rmc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="s4d-8U-L7a" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1466.6666666666667" y="719.86607142857144"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Rh9-0V-tfz">
             <objects>
@@ -715,4 +832,7 @@
             <point key="canvasLocation" x="-668.11594202898561" y="2085.9375"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FBI" width="719.25" height="380.25"/>
+    </resources>
 </document>

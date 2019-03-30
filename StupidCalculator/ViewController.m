@@ -304,6 +304,10 @@
     break;
   case 10:
     [self easterEgg10];
+    break;
+  case 1010:
+    [self easterEgg1010];
+    break;
   default:
     break;
   }
@@ -388,19 +392,25 @@
 {
   if([MFMailComposeViewController canSendMail])
   {
-    MFMailComposeViewController* mc = [[MFMailComposeViewController alloc] init];
-    mc.mailComposeDelegate = self;
-    [mc setSubject:@"Error report"];
-    [mc setMessageBody:@"<h2>鍾山曉</h2>" isHTML:TRUE];
-    [mc setToRecipients:@[@"help@example.com"]];
+    MFMailComposeViewController* mailCompose = [[MFMailComposeViewController alloc] init];
+    mailCompose.mailComposeDelegate = self;
+    [mailCompose setSubject:@"Error report"];
+    [mailCompose setMessageBody:@"<h2>鍾山曉</h2>" isHTML:TRUE];
+    [mailCompose setToRecipients:@[@"help@example.com"]];
     
-    [self presentViewController:mc animated:TRUE completion:nil];
+    [self presentViewController:mailCompose animated:TRUE completion:nil];
   }
 }
 
-- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+- (void) mailComposeController:(MFMailComposeViewController *)controller
+           didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
 {
   [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (void) easterEgg1010
+{
+  [self performSegueWithIdentifier:@"LocationViewSegue" sender:nil];
 }
 
 #pragma mark - Orientation
