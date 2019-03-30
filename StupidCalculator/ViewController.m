@@ -305,8 +305,8 @@
   case 10:
     [self easterEgg10];
     break;
-  case 1010:
-    [self easterEgg1010];
+  case 1011:
+    [self easterEgg1011];
     break;
   default:
     break;

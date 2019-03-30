@@ -53,7 +53,7 @@
 - (void) easterEgg8612;
 - (void) easterEgg100;
 - (void) easterEgg10;
-- (void) easterEgg1010;
+- (void) easterEgg1011;
 
 
 @end
