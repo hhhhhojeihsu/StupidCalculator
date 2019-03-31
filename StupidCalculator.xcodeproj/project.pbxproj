@@ -24,6 +24,8 @@
 		DE028F1C223A3D3D00644175 /* GIJOETableController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE028F1B223A3D3D00644175 /* GIJOETableController.m */; };
 		DE028F20223D358500644175 /* TableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = DE028F1F223D358500644175 /* TableCell.xib */; };
 		DE028F23223D3BC600644175 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = DE028F22223D3BC600644175 /* TableCell.m */; };
+		DE27065A225054D200FDA303 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE270659225054D200FDA303 /* MapViewController.m */; };
+		DE27065C2250575400FDA303 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE27065B2250575400FDA303 /* MapKit.framework */; };
 		DE2D6084224FA28700324FC6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE2D6083224FA28700324FC6 /* CoreLocation.framework */; };
 		DE43515B222CC7E500B6F670 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DE43515A222CC7E500B6F670 /* AppDelegate.m */; };
 		DE43515E222CC7E500B6F670 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DE43515D222CC7E500B6F670 /* ViewController.m */; };
@@ -53,6 +55,9 @@
 		DE028F1F223D358500644175 /* TableCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableCell.xib; sourceTree = "<group>"; };
 		DE028F21223D3BC600644175 /* TableCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
 		DE028F22223D3BC600644175 /* TableCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
+		DE270658225054D200FDA303 /* MapViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		DE270659225054D200FDA303 /* MapViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
+		DE27065B2250575400FDA303 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		DE2D6083224FA28700324FC6 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		DE435156222CC7E500B6F670 /* StupidCalculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StupidCalculator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DE435159222CC7E500B6F670 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +99,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DE27065C2250575400FDA303 /* MapKit.framework in Frameworks */,
 				DE2D6084224FA28700324FC6 /* CoreLocation.framework in Frameworks */,
 				DE5B5E47224F5B88008EC47E /* MessageUI.framework in Frameworks */,
 			);
@@ -102,6 +108,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE2706562250500000FDA303 /* GIJOE */ = {
+			isa = PBXGroup;
+			children = (
+				DE028F1A223A3D3D00644175 /* GIJOETableController.h */,
+				DE028F1B223A3D3D00644175 /* GIJOETableController.m */,
+				DE879893223F4074009CF7AF /* GIJOEViewController.h */,
+				DE879894223F4074009CF7AF /* GIJOEViewController.m */,
+				DE879896223F6EC4009CF7AF /* GIJOEVideoController.h */,
+				DE879897223F6EC4009CF7AF /* GIJOEVideoController.m */,
+			);
+			name = GIJOE;
+			sourceTree = "<group>";
+		};
+		DE2706572250502300FDA303 /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				DE5B5E48224F99D8008EC47E /* LocationViewController.h */,
+				DE5B5E49224F99D8008EC47E /* LocationViewController.m */,
+				DE270658225054D200FDA303 /* MapViewController.h */,
+				DE270659225054D200FDA303 /* MapViewController.m */,
+			);
+			name = Location;
+			sourceTree = "<group>";
+		};
 		DE43514D222CC7E500B6F670 = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +169,7 @@
 		DE5B5E45224F5B87008EC47E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DE27065B2250575400FDA303 /* MapKit.framework */,
 				DE2D6083224FA28700324FC6 /* CoreLocation.framework */,
 				DE5B5E46224F5B88008EC47E /* MessageUI.framework */,
 			);
@@ -158,8 +189,8 @@
 		DEC2A522223612DA00FD1FC0 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				DE028F1A223A3D3D00644175 /* GIJOETableController.h */,
-				DE028F1B223A3D3D00644175 /* GIJOETableController.m */,
+				DE2706572250502300FDA303 /* Location */,
+				DE2706562250500000FDA303 /* GIJOE */,
 				DE43515C222CC7E500B6F670 /* ViewController.h */,
 				DE43515D222CC7E500B6F670 /* ViewController.m */,
 				DEC2A51F2234FB2500FD1FC0 /* AuthViewController.h */,
@@ -168,12 +199,6 @@
 				DEC2A5252236139900FD1FC0 /* VideoController.m */,
 				DEC2A53622378DA800FD1FC0 /* CameraController.h */,
 				DEC2A53722378DA800FD1FC0 /* CameraController.m */,
-				DE879893223F4074009CF7AF /* GIJOEViewController.h */,
-				DE879894223F4074009CF7AF /* GIJOEViewController.m */,
-				DE879896223F6EC4009CF7AF /* GIJOEVideoController.h */,
-				DE879897223F6EC4009CF7AF /* GIJOEVideoController.m */,
-				DE5B5E48224F99D8008EC47E /* LocationViewController.h */,
-				DE5B5E49224F99D8008EC47E /* LocationViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -314,6 +339,7 @@
 				DE5B5E4A224F99D8008EC47E /* LocationViewController.m in Sources */,
 				DEC2A52F2236D64F00FD1FC0 /* YTPlayerView.m in Sources */,
 				DEC2A514222E1BB400FD1FC0 /* SCOperator.m in Sources */,
+				DE27065A225054D200FDA303 /* MapViewController.m in Sources */,
 				DE879898223F6EC4009CF7AF /* GIJOEVideoController.m in Sources */,
 				DE028F1C223A3D3D00644175 /* GIJOETableController.m in Sources */,
 			);

@@ -44,7 +44,8 @@
 - (void) fbiImageTapped:(UIGestureRecognizer *)recognizer
 {
   (void)recognizer;
-  [self dismissViewControllerAnimated:TRUE completion:nil];
+  //[self dismissViewControllerAnimated:TRUE completion:nil];
+  [self performSegueWithIdentifier:@"fbiImageSegue" sender:nil];
 }
 
 

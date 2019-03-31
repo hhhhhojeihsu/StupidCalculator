@@ -408,7 +408,7 @@
   [self dismissViewControllerAnimated:YES completion:NULL];
 }
 
-- (void) easterEgg1010
+- (void) easterEgg1011
 {
   [self performSegueWithIdentifier:@"LocationViewSegue" sender:nil];
 }
