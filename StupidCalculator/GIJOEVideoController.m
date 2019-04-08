@@ -8,6 +8,7 @@
 
 #import "GIJOEVideoController.h"
 #import "GIJOEViewController.h"
+#import "GIVid.h"
 
 @interface GIJOEVideoController ()
 
@@ -20,8 +21,6 @@
   [super viewDidLoad];
   // Do any additional setup after loading the view.
   
-  NSString* baseURL = @"https://www.youtube.com/watch?v=ooIudVs8IWg&t=";
-  
   // Access the timestamp of another tab bar page
   GIJOEViewController* gijoeViewController;
   gijoeViewController = [self.tabBarController.viewControllers objectAtIndex:0];
@@ -29,10 +28,11 @@
   
   // Convert time to seconds
   NSArray* timeComponents = [time componentsSeparatedByString:@":"];
-  int totalSeconds = [timeComponents[0] intValue] * 60 + [timeComponents[1] intValue];
   
   // Load web page
-  NSURL* webURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@%ds", baseURL, totalSeconds]];
+  NSURL* webURL = [NSURL URLWithString:
+                   [GIVid getVidURLMS:[((NSString *)timeComponents[0]) integerValue]
+                                  and:[((NSString *)timeComponents[1]) integerValue]]];
   NSURLRequest* request = [NSURLRequest requestWithURL:webURL];
   [self.gijoeWebVideo loadRequest:request];
 }

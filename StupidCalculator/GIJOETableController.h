@@ -17,9 +17,15 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) NSMutableArray* nameTable;
 @property (strong, nonatomic) NSMutableArray* timeTable;
 @property (strong, nonatomic) NSArray* filteredResult;
+@property (strong, nonatomic) NSArray* cusTable;
 @property (strong, nonatomic) UISearchController *searchController;
+@property (strong, nonatomic) NSManagedObjectContext *context;
+
+- (IBAction)backButton:(id)sender;
+- (IBAction)clearButton:(id)sender;
 
 - (void)searchForText:(NSString *)searchText;
+- (void)loadCusTable;
 
 @end
 

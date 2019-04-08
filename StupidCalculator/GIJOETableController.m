@@ -9,6 +9,7 @@
 #import "GIJOETableController.h"
 #import "TableCell.h"
 #import "GIJOEViewController.h"
+#import "AppDelegate.h"
 
 @interface GIJOETableController ()
 
@@ -30,6 +31,12 @@
   self.nameTable = [NSMutableArray arrayWithArray:dict[@"Name"]];
   self.timeTable = [NSMutableArray arrayWithArray:dict[@"Timestamp"]];
   
+  // Init context
+  AppDelegate * delegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+  self.context = [[delegate persistentContainer] viewContext];
+  
+  [self loadCusTable];
+  
   // Init search controller
   self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
   self.searchController.searchResultsUpdater = self;
@@ -49,15 +56,62 @@
   [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
+- (IBAction)clearButton:(id)sender
+{
+  // Show confirmation alert
+  UIAlertController* alert =
+  [UIAlertController alertControllerWithTitle:@"Confirmation!"
+                                      message:
+   @"This will delete all the data you previously entered. \
+   Are you sure you want to do it?"
+                               preferredStyle:UIAlertControllerStyleAlert];
+  UIAlertAction* deleteButton =
+  [UIAlertAction actionWithTitle:@"Delete"
+                           style:UIAlertActionStyleDestructive
+                         handler:^(UIAlertAction * action){
+    NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"Video"];
+    NSBatchDeleteRequest * delete = [[NSBatchDeleteRequest alloc] initWithFetchRequest:request];
+    [self.context executeRequest:delete error:nil];
+     
+    // cusTable should be empty now
+    self.cusTable = @[];
+    [self.tableView reloadData];
+  }];
+  UIAlertAction* cancelButton =
+  [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:nil];
+  [alert addAction:deleteButton];
+  [alert addAction:cancelButton];
+  [self presentViewController:alert
+                     animated:TRUE
+                   completion:nil];
+}
+
 
 #pragma mark - UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+  return 2;
+}
 
 - (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
   // Based on search or actual table
   if(self.searchController.active)
     return [self.filteredResult count];
-  return [self.nameTable count];
+  if(section == 0)
+    return [self.nameTable count];
+  // else if(section == 1)
+  return [self.cusTable count];
+}
+
+- (NSString *)tableView:(UITableView *)tableView
+titleForHeaderInSection:(NSInteger)section
+{
+  if(section == 0)
+    return @"Stock";
+  // else if(section == 1)
+  return @"Customized";
 }
 
 - (UITableViewCell*)tableView:(UITableView*)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -65,7 +119,7 @@
   static NSString* tableIdentifier = @"TableCell";
   
   TableCell* cell = [tableView dequeueReusableCellWithIdentifier:tableIdentifier];
-  NSString* name = [self.nameTable objectAtIndex:indexPath.row];
+  NSString* name;
   
   // If the cell is not loaded from nib, then load the first time
   if(cell == nil)
@@ -73,17 +127,25 @@
     NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"TableCell" owner:self options:nil];
     cell = nib[0];
   }
-
-  if(self.searchController.active)
-  {
-    name = [self.filteredResult objectAtIndex:indexPath.row];
-  }
-  cell.cellImage.image = [UIImage imageNamed:name];
-  cell.cellName.text = [name componentsSeparatedByString:@" "][1];
   
-  cell.cellTime.text = [self.timeTable objectAtIndex:[self.nameTable indexOfObject:name]];
+  if(indexPath.section == 1)
+  {
+    cell.cellName.text = [self.cusTable[indexPath.row] valueForKey:@"name"];
+    cell.cellTime.text = [self.cusTable[indexPath.row] valueForKey:@"timestamp"];
+  }
+  else
+  {
+    name = [self.nameTable objectAtIndex:indexPath.row];
+    cell.cellImage.image = [UIImage imageNamed:name];
+    cell.cellName.text = [name componentsSeparatedByString:@" "][1];
+    cell.cellTime.text = [self.timeTable objectAtIndex:[self.nameTable indexOfObject:name]];
+  }
+  
+  if(self.searchController.active)
+    name = [self.filteredResult objectAtIndex:indexPath.row];
+  
   cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-
+  
   return cell;
 }
 
@@ -91,9 +153,24 @@
   commitEditingStyle:(UITableViewCellEditingStyle)editingStyle
   forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-  // Remove both name and time table from mutable array
-  [self.nameTable removeObjectAtIndex:indexPath.row];
-  [self.timeTable removeObjectAtIndex:indexPath.row];
+  if(indexPath.section == 0)
+  {
+    // Remove both name and time table from mutable array
+    [self.nameTable removeObjectAtIndex:indexPath.row];
+    [self.timeTable removeObjectAtIndex:indexPath.row];
+  }
+  else if(indexPath.section == 1)
+  {
+    // Save to Core Data
+    NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"Video"];
+    NSArray * arr = [self.context executeFetchRequest:request error:nil];
+    [self.context deleteObject:arr[indexPath.row]];
+    [self.context save:nil];
+      
+    // Reload cusTable from Core Data
+    [self loadCusTable];
+  }
+
   [tableView reloadData];
 }
 
@@ -174,6 +251,19 @@
     destViewController.name = [self.nameTable objectAtIndex:indexPath.row];
     destViewController.timestamp = [self.timeTable objectAtIndex:indexPath.row];
   }
+}
+
+#pragma mark - Misc.
+
+- (void)loadCusTable
+{
+  // Load GIJOE list from core data
+  NSFetchRequest * request = [[NSFetchRequest alloc] initWithEntityName:@"Video"];
+  
+  // Reference: https://stackoverflow.com/a/7304350
+  // Object content will not be filled in debugger if not used.
+  self.cusTable = [self.context executeFetchRequest:request error:nil];
+  return;
 }
 
 @end
