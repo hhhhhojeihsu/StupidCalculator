@@ -98,7 +98,13 @@
 {
   // Based on search or actual table
   if(self.searchController.active)
-    return [self.filteredResult count];
+  {
+    if(section == 0)
+      return [self.filteredResult count];
+    // else if(section == 1)
+    return [self.filteredCusResult count];
+  }
+  // else
   if(section == 0)
     return [self.nameTable count];
   // else if(section == 1)
@@ -127,24 +133,44 @@ titleForHeaderInSection:(NSInteger)section
     NSArray* nib = [[NSBundle mainBundle] loadNibNamed:@"TableCell" owner:self options:nil];
     cell = nib[0];
   }
-  
-  if(indexPath.section == 1)
+
+  if(indexPath.section == 0)
   {
-    cell.cellName.text = [self.cusTable[indexPath.row] valueForKey:@"name"];
-    cell.cellTime.text = [self.cusTable[indexPath.row] valueForKey:@"timestamp"];
-  }
-  else
-  {
-    name = [self.nameTable objectAtIndex:indexPath.row];
+    if(self.searchController.active)
+    {
+      name = [self.filteredResult objectAtIndex:indexPath.row];
+      cell.cellTime.text = [self.timeTable objectAtIndex:[self.nameTable indexOfObject:name]];
+    }
+    else
+    {
+      name = [self.nameTable objectAtIndex:indexPath.row];
+      cell.cellTime.text = [self.timeTable objectAtIndex:indexPath.row];
+    }
+    cell.cellName.text = name;
     cell.cellImage.image = [UIImage imageNamed:name];
-    cell.cellName.text = [name componentsSeparatedByString:@" "][1];
-    cell.cellTime.text = [self.timeTable objectAtIndex:[self.nameTable indexOfObject:name]];
   }
-  
-  if(self.searchController.active)
-    name = [self.filteredResult objectAtIndex:indexPath.row];
-  
-  cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+  else // if(indexPath.seciont == 1)
+  {
+    if(self.searchController.active)
+    {
+      name = [self.filteredCusResult objectAtIndex:indexPath.row];
+      for(NSObject *element in self.cusTable)
+      {
+        if([[element valueForKey:@"name"] isEqualToString:name])
+        {
+          cell.cellTime.text = [element valueForKey:@"timestamp"];
+          break;
+        }
+      }
+    }
+    else
+    {
+      name = [self.cusTable[indexPath.row] valueForKey:@"name"];
+      cell.cellTime.text = [self.cusTable[indexPath.row] valueForKey:@"timestamp"];
+    }
+    cell.cellName.text = name;
+    // TODO: Set custom picture
+  }
   
   return cell;
 }
@@ -222,6 +248,14 @@ titleForHeaderInSection:(NSInteger)section
 {
   NSPredicate *predicate = [NSPredicate predicateWithFormat:@"SELF contains[cd] %@", searchText];
   self.filteredResult = [self.nameTable filteredArrayUsingPredicate:predicate];
+
+  // cusTable is array of object of multiple value
+  NSMutableArray *cusArr = [[NSMutableArray alloc] init];
+  for(NSObject *element in self.cusTable)
+  {
+    [cusArr addObject:[element valueForKey:@"name"]];
+  }
+  self.filteredCusResult = [cusArr filteredArrayUsingPredicate:predicate];
   return;
 }
 
@@ -238,18 +272,42 @@ titleForHeaderInSection:(NSInteger)section
   // Destination is UITabBarController. Need to access its view controllers
   UITabBarController* destTabBarController = segue.destinationViewController;
   GIJOEViewController* destViewController = destTabBarController.viewControllers[0];
-  
+
   if(self.searchController.active)
   {
-    destViewController.name = [self.filteredResult objectAtIndex:indexPath.row];
-    destViewController.timestamp = [self.timeTable
-                                    objectAtIndex:
-                                    [self.nameTable indexOfObject:destViewController.name]];
+    if(indexPath.section == 0)
+    {
+      destViewController.name = [self.filteredResult objectAtIndex:indexPath.row];
+      destViewController.timestamp = [self.timeTable
+                                      objectAtIndex:
+                                      [self.nameTable indexOfObject:destViewController.name]];
+    }
+    else // indexPath.section == 1
+    {
+      destViewController.name = [self.filteredCusResult objectAtIndex:indexPath.row];
+      for(NSObject *element in self.cusTable)
+      {
+        if([[element valueForKey:@"name"] isEqualToString:destViewController.name])
+        {
+          destViewController.timestamp = [element valueForKey:@"timestamp"];
+          break;
+        }
+      }
+    }
+
   }
-  else
+  else // Regular table
   {
-    destViewController.name = [self.nameTable objectAtIndex:indexPath.row];
-    destViewController.timestamp = [self.timeTable objectAtIndex:indexPath.row];
+    if(indexPath.section == 0)
+    {
+      destViewController.name = [self.nameTable objectAtIndex:indexPath.row];
+      destViewController.timestamp = [self.timeTable objectAtIndex:indexPath.row];
+    }
+    else // indexPath.section == 1
+    {
+      destViewController.name = [self.cusTable[indexPath.row] valueForKey:@"name"];
+      destViewController.timestamp = [self.cusTable[indexPath.row] valueForKey:@"timestamp"];
+    }
   }
 }
 

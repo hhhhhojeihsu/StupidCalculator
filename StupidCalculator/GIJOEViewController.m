@@ -19,7 +19,7 @@
   [super viewDidLoad];
   
   // Copy context sent from segue to outlet
-  self.gijoeName.text = [self.name componentsSeparatedByString:@" "][1];
+  self.gijoeName.text = self.name;
   self.gijoeTimestamp.text = [NSString stringWithFormat:@"Timestamp: %@", self.timestamp];
   self.gijoeImage.image = [UIImage imageNamed:self.name];
 }
